@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     10929,        303]
-NotebookOptionsPosition[     10544,        289]
-NotebookOutlinePosition[     10878,        304]
-CellTagsIndexPosition[     10835,        301]
+NotebookDataLength[     12901,        353]
+NotebookOptionsPosition[     12419,        338]
+NotebookOutlinePosition[     12753,        353]
+CellTagsIndexPosition[     12710,        350]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -285,7 +285,56 @@ Cell[BoxData[{
        RowBox[{"{", 
         RowBox[{"i", ",", "1", ",", "3"}], "}"}]}], "]"}]}]}], 
    "\[IndentingNewLine]", "]"}]}]}], "Input",ExpressionUUID->"6ebf75ad-2895-\
-4475-9a5b-4359b1822815"]
+4475-9a5b-4359b1822815"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Print", "[", "$q2", "]"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"DetectImpactEvents", "[", 
+     RowBox[{
+      RowBox[{"q1", "[", "t", "]"}], ",", 
+      RowBox[{"q2", "[", "t", "]"}], ",", 
+      RowBox[{"q3", "[", "t", "]"}], ",", 
+      RowBox[{"q4", "[", "t", "]"}]}], "]"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"For", "[", 
+    RowBox[{
+     RowBox[{"i", "=", "1"}], ",", 
+     RowBox[{"i", "\[LessEqual]", "n\[Phi]s"}], ",", 
+     RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Print", "[", "$q2", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"t", ",", "\"\<|\>\"", ",", "i", ",", "\"\<|\>\"", ",", 
+        RowBox[{"\[Phi]sIsClose", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], ",", "\"\< | \>\"", ",", 
+        RowBox[{"\[Phi]sIsInLine", "[", 
+         RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"\[Phi]sIsClose", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], " ", "and", " ", 
+         RowBox[{"\[Phi]sIsInLine", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], ",", 
+        RowBox[{"Break", "[", "]"}]}], "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}], ";", "\[IndentingNewLine]", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"i", "==", 
+     RowBox[{"n\[Phi]s", "+", "1"}]}], ",", "False", 
+    RowBox[{"(*", 
+     RowBox[{"no", " ", "impact"}], "*)"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "}"}], ",", 
+      RowBox[{
+       RowBox[{"FlagNoImpact", "=", "i"}], ";", "True"}]}], "]"}]}], 
+   RowBox[{"(*", 
+    RowBox[{"has", " ", "impact"}], "*)"}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",ExpressionUUID->"2024b8b2-54f9-445f-809b-027236dbfb28"]
 },
 WindowSize->{1358, 847},
 WindowMargins->{{0, Automatic}, {Automatic, 60}},
@@ -304,7 +353,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 5607, 137, 786, "Input",ExpressionUUID->"2a0ae48c-8573-467a-9b1a-1f240f6b9e36"],
-Cell[6168, 159, 4372, 128, 423, "Input",ExpressionUUID->"6ebf75ad-2895-4475-9a5b-4359b1822815"]
+Cell[6168, 159, 4372, 128, 423, "Input",ExpressionUUID->"6ebf75ad-2895-4475-9a5b-4359b1822815"],
+Cell[10543, 289, 1872, 47, 239, "Input",ExpressionUUID->"2024b8b2-54f9-445f-809b-027236dbfb28"]
 }
 ]
 *)

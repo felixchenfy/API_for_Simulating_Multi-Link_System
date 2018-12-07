@@ -10,131 +10,26 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      5264,        152]
-NotebookOptionsPosition[      4829,        135]
-NotebookOutlinePosition[      5183,        151]
-CellTagsIndexPosition[      5140,        148]
+NotebookDataLength[      1292,         47]
+NotebookOptionsPosition[       860,         30]
+NotebookOutlinePosition[      1217,         46]
+CellTagsIndexPosition[      1174,         43]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell[BoxData[{
- RowBox[{"SetUpImpacts", "[", "]"}], "\[IndentingNewLine]", 
- RowBox[{"MF", "[", "\[Phi]sIsInLine", "]"}]}], "Input",
- CellChangeTimes->{{3.753190749128264*^9, 3.753190749217287*^9}, {
-  3.75319084939334*^9, 3.753190849540971*^9}, {3.7531910707983713`*^9, 
-  3.75319107092971*^9}, {3.753191229559856*^9, 3.75319123065112*^9}},
- CellLabel->
-  "In[1406]:=",ExpressionUUID->"f477d8fe-be5c-4df2-9b6a-70bab355e732"],
+Cell[BoxData["T1"], "Input",
+ CellLabel->"In[83]:=",ExpressionUUID->"d27ec3ac-bb73-4637-8efa-3d297a89420c"],
 
-Cell[BoxData[
- TagBox[
-  RowBox[{"(", "\[NoBreak]", 
-   TagBox[GridBox[{
-      {
-       RowBox[{
-        RowBox[{"-", "8"}], "\[LessEqual]", 
-        RowBox[{
-         RowBox[{"2.8284271247461903`", " ", 
-          RowBox[{"Cos", "[", 
-           RowBox[{"$q3", "[", "t", "]"}], "]"}]}], "+", 
-         RowBox[{"4", " ", 
-          RowBox[{"$q1", "[", "t", "]"}]}]}], "\[LessEqual]", "8"}]},
-      {
-       RowBox[{
-        RowBox[{
-         RowBox[{"2.8284271247461903`", " ", 
-          RowBox[{"Cos", "[", 
-           RowBox[{"$q3", "[", "t", "]"}], "]"}]}], "\[LessEqual]", 
-         RowBox[{"8", "+", 
-          RowBox[{"4", " ", 
-           RowBox[{"$q1", "[", "t", "]"}]}]}]}], "&&", 
-        RowBox[{
-         RowBox[{"4", " ", 
-          RowBox[{"$q1", "[", "t", "]"}]}], "\[LessEqual]", 
-         RowBox[{"8", "+", 
-          RowBox[{"2.8284271247461903`", " ", 
-           RowBox[{"Cos", "[", 
-            RowBox[{"$q3", "[", "t", "]"}], "]"}]}]}]}]}]},
-      {
-       RowBox[{
-        RowBox[{
-         RowBox[{"2.`", " ", 
-          RowBox[{"Cos", "[", 
-           RowBox[{"$q3", "[", "t", "]"}], "]"}]}], "\[LessEqual]", 
-         RowBox[{"0.7071067811865477`", "\[VeryThinSpace]", "+", 
-          RowBox[{"2.`", " ", 
-           RowBox[{"Sin", "[", 
-            RowBox[{"$q3", "[", "t", "]"}], "]"}]}], "+", 
-          RowBox[{"1.`", " ", 
-           RowBox[{"Cos", "[", 
-            RowBox[{"$q3", "[", "t", "]"}], "]"}], " ", 
-           RowBox[{"$q1", "[", "t", "]"}]}], "+", 
-          RowBox[{"1.`", " ", 
-           RowBox[{"Sin", "[", 
-            RowBox[{"$q3", "[", "t", "]"}], "]"}], " ", 
-           RowBox[{"$q2", "[", "t", "]"}]}]}]}], "&&", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"1.`", " ", 
-           RowBox[{"Cos", "[", 
-            RowBox[{"$q3", "[", "t", "]"}], "]"}], " ", 
-           RowBox[{"$q1", "[", "t", "]"}]}], "+", 
-          RowBox[{
-           RowBox[{"Sin", "[", 
-            RowBox[{"$q3", "[", "t", "]"}], "]"}], " ", 
-           RowBox[{"(", 
-            RowBox[{"2.`", "\[VeryThinSpace]", "+", 
-             RowBox[{"1.`", " ", 
-              RowBox[{"$q2", "[", "t", "]"}]}]}], ")"}]}]}], "\[LessEqual]", 
-         RowBox[{"0.7071067811865477`", "\[VeryThinSpace]", "+", 
-          RowBox[{"2.`", " ", 
-           RowBox[{"Cos", "[", 
-            RowBox[{"$q3", "[", "t", "]"}], "]"}]}]}]}]}]},
-      {
-       RowBox[{
-        RowBox[{"-", "0.7071067811865477`"}], "\[LessEqual]", 
-        RowBox[{
-         RowBox[{"2.`", " ", 
-          RowBox[{"Cos", "[", 
-           RowBox[{"$q3", "[", "t", "]"}], "]"}]}], "+", 
-         RowBox[{"2.`", " ", 
-          RowBox[{"Sin", "[", 
-           RowBox[{"$q3", "[", "t", "]"}], "]"}]}], "+", 
-         RowBox[{"1.`", " ", 
-          RowBox[{"Cos", "[", 
-           RowBox[{"$q3", "[", "t", "]"}], "]"}], " ", 
-          RowBox[{"$q1", "[", "t", "]"}]}], "+", 
-         RowBox[{"1.`", " ", 
-          RowBox[{"Sin", "[", 
-           RowBox[{"$q3", "[", "t", "]"}], "]"}], " ", 
-          RowBox[{"$q2", "[", "t", "]"}]}]}], "\[LessEqual]", 
-        "0.7071067811865477`"}]}
-     },
-     GridBoxAlignment->{
-      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
-        "RowsIndexed" -> {}},
-     GridBoxSpacings->{"Columns" -> {
-         Offset[0.27999999999999997`], {
-          Offset[0.5599999999999999]}, 
-         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-         Offset[0.2], {
-          Offset[0.4]}, 
-         Offset[0.2]}, "RowsIndexed" -> {}}],
-    Column], "\[NoBreak]", ")"}],
-  Function[BoxForm`e$, 
-   MatrixForm[BoxForm`e$]]]], "Output",
- CellChangeTimes->{{3.753191232294874*^9, 3.753191245633572*^9}, 
-   3.753191301966566*^9},
- CellLabel->
-  "Out[1407]//MatrixForm=",ExpressionUUID->"e96aa4dd-83f7-4a10-bcfb-\
-dbe9d9b526f6"]
+Cell[BoxData["T$2182"], "Output",
+ CellChangeTimes->{3.753193421550354*^9},
+ CellLabel->"Out[83]=",ExpressionUUID->"6cd4ed0b-98bf-49a7-8904-7db1450a3600"]
 }, Open  ]]
 },
 WindowSize->{1290, 829},
-WindowMargins->{{Automatic, 3}, {19, Automatic}},
+WindowMargins->{{Automatic, -307}, {30, Automatic}},
 Magnification->1.5,
 FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
@@ -151,8 +46,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 425, 7, 105, "Input",ExpressionUUID->"f477d8fe-be5c-4df2-9b6a-70bab355e732"],
-Cell[1008, 31, 3805, 101, 184, "Output",ExpressionUUID->"e96aa4dd-83f7-4a10-bcfb-dbe9d9b526f6"]
+Cell[580, 22, 107, 1, 47, "Input",ExpressionUUID->"d27ec3ac-bb73-4637-8efa-3d297a89420c"],
+Cell[690, 25, 154, 2, 53, "Output",ExpressionUUID->"6cd4ed0b-98bf-49a7-8904-7db1450a3600"]
 }, Open  ]]
 }
 ]
