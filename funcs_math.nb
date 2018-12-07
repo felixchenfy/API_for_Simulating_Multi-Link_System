@@ -1,0 +1,194 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6266,        186]
+NotebookOptionsPosition[      5956,        172]
+NotebookOutlinePosition[      6312,        188]
+CellTagsIndexPosition[      6269,        185]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Math", " ", "funcs"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "return", " ", "the", " ", "distance", " ", "between", " ", "p1", " ", 
+    "and", " ", "p2"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"CalcDist", "[", 
+      RowBox[{"x1_", ",", "y1_", ",", "x2_", ",", "y2_"}], "]"}], ":=", 
+     RowBox[{"Sqrt", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"x2", "-", "x1"}], ")"}], "^", "2"}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"y2", "-", "y1"}], ")"}], "^", "2"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"return", " ", "the", " ", "angle", " ", "between", " ", 
+     RowBox[{"(", 
+      RowBox[{"pb", ",", "p0"}], ")"}], " ", "and", " ", 
+     RowBox[{"(", 
+      RowBox[{"pb", ",", "p1"}], ")"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   
+   RowBox[{
+    RowBox[{
+     RowBox[{"CosLaw", "[", 
+      RowBox[{
+      "x1_", ",", "y1_", ",", "x2_", ",", "y2_", ",", "xb_", ",", "yb_"}], 
+      "]"}], ":=", 
+     RowBox[{"Module", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"a", ",", "b", ",", "c", ",", "costheta"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"a", "=", 
+         RowBox[{"CalcDist", "[", 
+          RowBox[{"xb", ",", "yb", ",", "x1", ",", "y1"}], "]"}]}], ";", "\n",
+         "       ", 
+        RowBox[{"b", "=", 
+         RowBox[{"CalcDist", "[", 
+          RowBox[{"xb", ",", "yb", ",", "x2", ",", "y2"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"c", "=", 
+         RowBox[{"CalcDist", "[", 
+          RowBox[{"x1", ",", "y1", ",", "x2", ",", "y2"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"costheta", "=", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"a", "^", "2"}], "+", 
+            RowBox[{"b", "^", "2"}], "-", 
+            RowBox[{"c", "^", "2"}]}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"2", "*", "a", "*", "b"}], ")"}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"ArcCos", "[", "costheta", "]"}]}]}], "\n", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"myArcTan", "[", 
+      RowBox[{"x1_", ",", "y1_", ",", "x2_", ",", "y2_"}], "]"}], ":=", 
+     RowBox[{"ArcTan", "[", 
+      RowBox[{
+       RowBox[{"y2", "-", "y1"}], ",", 
+       RowBox[{"x2", "-", "x1"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"myPiToPi", "[", "theta_", "]"}], ":=", 
+     RowBox[{"Which", "[", 
+      RowBox[{
+       RowBox[{"theta", ">", "Pi"}], ",", 
+       RowBox[{"theta", "-", 
+        RowBox[{"2", "*", "Pi"}]}], ",", 
+       RowBox[{"theta", "<", 
+        RowBox[{"-", "Pi"}]}], ",", 
+       RowBox[{"theta", "+", 
+        RowBox[{"2", "*", "Pi"}]}], ",", "True", ",", "theta"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "Check", " ", "if", " ", "the", " ", "projection", " ", "of", " ", 
+      "pb"}], "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"xb", ",", "yb"}], ")"}], " ", "is", " ", "in", " ", "the", 
+      " ", "line", " ", "of", " ", 
+      RowBox[{"p0", "~", "p1"}]}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"isInLine", "[", 
+      RowBox[{
+      "x1_", ",", "y1_", ",", "x2_", ",", "y2_", ",", "xb_", ",", "yb_"}], 
+      "]"}], ":=", 
+     RowBox[{"Module", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"dx", ",", "dy", ",", "innerproduct"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"dx", "=", 
+         RowBox[{"x2", "-", "x1"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"dy", "=", 
+         RowBox[{"y2", "-", "y1"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"innerproduct", "=", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"xb", "-", "x1"}], ")"}], "*", "dx"}], "+", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"yb", "-", "y1"}], ")"}], "*", "dy"}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"0", "\[LessEqual]", "innerproduct"}], "&&", 
+         RowBox[{"innerproduct", "\[LessEqual]", 
+          RowBox[{
+           RowBox[{"dx", "*", "dx"}], "+", 
+           RowBox[{"dy", "*", "dy"}]}]}]}]}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"-", " ", "Math"}]}]}]}]}]}], " ", "funcs", " ", "ends", 
+      " ", 
+      RowBox[{"here", ".", " ", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", "-"}]}]}]}]}]}]}]}]}], ";"}], "*)"}]}]}]], "Input",\
+
+ CellChangeTimes->{{3.7531785365298567`*^9, 3.753178537491037*^9}, {
+   3.753178628181761*^9, 3.7531786790352163`*^9}, 3.7531787921935453`*^9},
+ CellLabel->
+  "In[193]:=",ExpressionUUID->"f54ce7a4-ddc0-40be-a90b-f01bbd313b62"]
+},
+WindowSize->{1141, 707},
+WindowMargins->{{Automatic, -15}, {Automatic, 97}},
+Magnification->1.5,
+FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 5394, 150, 966, "Input",ExpressionUUID->"f54ce7a4-ddc0-40be-a90b-f01bbd313b62"]
+}
+]
+*)
+

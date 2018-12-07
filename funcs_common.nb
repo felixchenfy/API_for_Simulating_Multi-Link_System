@@ -1,0 +1,150 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5084,        142]
+NotebookOptionsPosition[      4776,        128]
+NotebookOutlinePosition[      5130,        144]
+CellTagsIndexPosition[      5087,        141]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Mathematica", " ", "expression", " ", "related", " ", "funcs"}], 
+   " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"setTimeVars", "[", "vs_", "]"}], ":=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"vs", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "[", "t", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "vs", "]"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"TurnToEq", "[", 
+      RowBox[{"list1_", ",", "list2_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "tmp", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"tmp", "=", 
+         RowBox[{"Flatten", "[", "list1", "]"}]}], ";", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"tmp", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "==", 
+           RowBox[{"list2", "[", 
+            RowBox[{"[", "i", "]"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", 
+            RowBox[{"Length", "[", "tmp", "]"}]}], "}"}]}], "]"}]}]}], 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"myOpenFile", "[", "filename_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "nb1", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"nb1", "=", 
+        RowBox[{"NotebookOpen", "[", 
+         RowBox[{
+          RowBox[{"NotebookDirectory", "[", "]"}], "<>", "filename"}], 
+         "]"}]}], ";", "\n", 
+       RowBox[{"SelectionMove", "[", 
+        RowBox[{"nb1", ",", "All", ",", "Notebook"}], "]"}], ";", "\n", 
+       RowBox[{"SelectionEvaluate", "[", "nb1", "]"}], ";"}]}], "]"}]}], "\n",
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"lToMass", "[", "l_", "]"}], ":=", "l"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"lToInertia", "[", "l_", "]"}], ":=", 
+    RowBox[{"l", "^", "2"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Create", " ", "objects"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"newVars", "[", "nDOF_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"objqs", ",", "objqsvars"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"objqsvars", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Symbol", "[", 
+           RowBox[{"\"\<$q\>\"", "<>", 
+            RowBox[{"ToString", "@", "i"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", 
+            RowBox[{"nVars", "+", "1"}], ",", 
+            RowBox[{"nVars", "+", "nDOF"}]}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{"x", " ", "\[Rule]", " ", 
+         RowBox[{"x", "[", "t", "]"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"objqs", "=", 
+        RowBox[{"setTimeVars", "[", "objqsvars", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"Update", " ", "vars"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"qs", "=", 
+        RowBox[{"Join", "[", 
+         RowBox[{"qs", ",", "objqs"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"qsvars", "=", 
+        RowBox[{"Join", "[", 
+         RowBox[{"qsvars", ",", "objqsvars"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"nVars", "=", 
+        RowBox[{"nVars", "+", "nDOF"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"objqs", ",", "objqsvars"}], "}"}]}]}], "\[IndentingNewLine]",
+      "]"}]}]}]}]], "Input",
+ CellChangeTimes->{
+  3.753178871503525*^9, {3.753178943913477*^9, 3.753179051729616*^9}, {
+   3.753179095527733*^9, 3.753179124041339*^9}, {3.753179218829652*^9, 
+   3.75317921896362*^9}, {3.753179864724807*^9, 3.753179906424315*^9}, 
+   3.753180099614407*^9, {3.7531801484228363`*^9, 3.753180151898964*^9}, 
+   3.753180295630445*^9},
+ CellLabel->
+  "In[116]:=",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"]
+},
+WindowSize->{866, 847},
+WindowMargins->{{-33, Automatic}, {0, Automatic}},
+Magnification->1.5,
+FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4214, 106, 983, "Input",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"]
+}
+]
+*)
+
