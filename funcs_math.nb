@@ -222,7 +222,7 @@ Cell[BoxData[
    3.75318717795477*^9, 3.7531872182420397`*^9}, {3.7531872584341707`*^9, 
    3.7531873457679033`*^9}, {3.753187543154072*^9, 3.753187565248691*^9}, {
    3.7531876894925613`*^9, 3.753187689622705*^9}},
- CellLabel->"In[21]:=",ExpressionUUID->"f54ce7a4-ddc0-40be-a90b-f01bbd313b62"],
+ CellLabel->"In[17]:=",ExpressionUUID->"f54ce7a4-ddc0-40be-a90b-f01bbd313b62"],
 
 Cell[BoxData[
  RowBox[{
@@ -533,10 +533,10 @@ Cell[BoxData[
          RowBox[{"--", 
           RowBox[{"--", 
            RowBox[{"--", "--"}]}]}]}]}]}]}]}], "*)"}]}]}]], "Input",
- CellLabel->"In[27]:=",ExpressionUUID->"df401d47-6596-41da-ad78-957d3167dca5"]
+ CellLabel->"In[23]:=",ExpressionUUID->"df401d47-6596-41da-ad78-957d3167dca5"]
 },
 WindowSize->{1141, 707},
-WindowMargins->{{68, Automatic}, {57, Automatic}},
+WindowMargins->{{68, Automatic}, {27, Automatic}},
 Magnification->1.5,
 FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
