@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      6419,        177]
-NotebookOptionsPosition[      6110,        163]
-NotebookOutlinePosition[      6464,        179]
-CellTagsIndexPosition[      6421,        176]
+NotebookDataLength[     13435,        347]
+NotebookOptionsPosition[     13124,        333]
+NotebookOutlinePosition[     13479,        349]
+CellTagsIndexPosition[     13436,        346]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -80,7 +80,7 @@ Cell[BoxData[
    RowBox[{"(*", " ", 
     RowBox[{"Create", " ", "objects"}], " ", "*)"}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"newVars", "[", "nDOF_", "]"}], ":=", 
+    RowBox[{"pushVars", "[", "nDOF_", "]"}], ":=", 
     RowBox[{"Module", "[", 
      RowBox[{
       RowBox[{"{", 
@@ -118,7 +118,7 @@ Cell[BoxData[
         RowBox[{"objqs", ",", "objqsvars"}], "}"}]}]}], "\[IndentingNewLine]",
       "]"}]}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"newPEnds", "[", 
+    RowBox[{"pushPEnds", "[", 
      RowBox[{"T_", ",", "l_"}], "]"}], ":=", 
     RowBox[{"Module", "[", 
      RowBox[{
@@ -149,20 +149,190 @@ Cell[BoxData[
        RowBox[{"AppendTo", "[", 
         RowBox[{"pFronts", ",", "pFront"}], "]"}], ";", "\[IndentingNewLine]", 
        RowBox[{"AppendTo", "[", 
-        RowBox[{"pBacks", ",", "pBack"}], "]"}], ";"}]}], 
-     "]"}]}]}]}]], "Input",
+        RowBox[{"pBacks", ",", "pBack"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"pFront", ",", "pBack"}], "}"}]}]}], "]"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"UpdateObjVertexs", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"pFront_", ",", "pBack_"}], "}"}], ",", "nthGroup_"}], "]"}], 
+     ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"impObjVertexs", ",", 
+          RowBox[{"{", 
+           RowBox[{"pFront", ",", "pBack"}], "}"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "An", " ", "example", " ", "of", " ", "impObjVertexs", " ", "from", 
+          " ", "one", " ", "link", " ", "and", " ", "one", " ", 
+          RowBox[{"wall", ":", "\[IndentingNewLine]", 
+           RowBox[{"(", "\[NoBreak]", GridBox[{
+              {
+               RowBox[{"(", "\[NoBreak]", GridBox[{
+                  {
+                   RowBox[{" ", 
+                    RowBox[{
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"$q3", "[", "t", "]"}], "]"}], "+", 
+                    RowBox[{"$q1", "[", "t", "]"}]}]}]},
+                  {
+                   RowBox[{
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"$q3", "[", "t", "]"}], "]"}], "+", 
+                    RowBox[{"$q2", "[", "t", "]"}]}]},
+                  {"0.`"},
+                  {"1.`"}
+                 },
+                 
+                 GridBoxAlignment->{
+                  "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+                   "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+                 GridBoxSpacings->{"Columns" -> {
+                    Offset[0.27999999999999997`], {
+                    Offset[0.7]}, 
+                    Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+                   "Rows" -> {
+                    Offset[0.2], {
+                    Offset[0.4]}, 
+                    Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+               
+               RowBox[{"(", "\[NoBreak]", GridBox[{
+                  {
+                   RowBox[{
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"$q3", "[", "t", "]"}], "]"}], "+", 
+                    RowBox[{"$q1", "[", "t", "]"}]}]},
+                  {
+                   RowBox[{" ", 
+                    RowBox[{
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"$q3", "[", "t", "]"}], "]"}], "+", 
+                    RowBox[{"$q2", "[", "t", "]"}]}]}]},
+                  {"0.`"},
+                  {"1.`"}
+                 },
+                 
+                 GridBoxAlignment->{
+                  "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+                   "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+                 GridBoxSpacings->{"Columns" -> {
+                    Offset[0.27999999999999997`], {
+                    Offset[0.7]}, 
+                    Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+                   "Rows" -> {
+                    Offset[0.2], {
+                    Offset[0.4]}, 
+                    Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", 
+                ")"}]},
+              {
+               RowBox[{"(", "\[NoBreak]", GridBox[{
+                  {"0"},
+                  {"0"},
+                  {"0"},
+                  {"1"}
+                 },
+                 
+                 GridBoxAlignment->{
+                  "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+                   "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+                 GridBoxSpacings->{"Columns" -> {
+                    Offset[0.27999999999999997`], {
+                    Offset[0.7]}, 
+                    Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+                   "Rows" -> {
+                    Offset[0.2], {
+                    Offset[0.4]}, 
+                    Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+               
+               RowBox[{"(", "\[NoBreak]", GridBox[{
+                  {"0"},
+                  {
+                   RowBox[{"-", "4"}]},
+                  {"0"},
+                  {"1"}
+                 },
+                 
+                 GridBoxAlignment->{
+                  "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+                   "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+                 GridBoxSpacings->{"Columns" -> {
+                    Offset[0.27999999999999997`], {
+                    Offset[0.7]}, 
+                    Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+                   "Rows" -> {
+                    Offset[0.2], {
+                    Offset[0.4]}, 
+                    Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}]}
+             },
+             
+             GridBoxAlignment->{
+              "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+               "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+             GridBoxSpacings->{"Columns" -> {
+                 Offset[0.27999999999999997`], {
+                  Offset[0.7]}, 
+                 Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
+               "Rows" -> {
+                 Offset[0.2], {
+                  Offset[0.4]}, 
+                 Offset[0.2]}, "RowsIndexed" -> {}}], ")"}]}]}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"impObjVertexGroupIDs", ",", "nthGroup"}], "]"}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"PushVertex", "[", 
+      RowBox[{"p_", ",", "nthGroup_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"impObjVertexs", ",", "p"}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"impObjVertexGroupIDs", ",", "nthGroup"}], "]"}], ";"}]}], 
+      "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"PushEdge", "[", 
+      RowBox[{"p1p2_", ",", "nthGroup_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"impObjEdges", ",", "p1p2"}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"impObjEdgeGroupIDs", ",", "nthGroup"}], "]"}], ";"}]}], 
+      "]"}]}], ";"}], "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{
   3.753178871503525*^9, {3.753178943913477*^9, 3.753179051729616*^9}, {
    3.753179095527733*^9, 3.753179124041339*^9}, {3.753179218829652*^9, 
    3.75317921896362*^9}, {3.753179864724807*^9, 3.753179906424315*^9}, 
    3.753180099614407*^9, {3.7531801484228363`*^9, 3.753180151898964*^9}, 
    3.753180295630445*^9, {3.753181007486519*^9, 3.753181060011223*^9}, {
-   3.753181091420342*^9, 3.753181131018433*^9}, 3.7531811615802*^9},
- CellLabel->
-  "In[339]:=",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"]
+   3.753181091420342*^9, 3.753181131018433*^9}, 3.7531811615802*^9, {
+   3.753181626430949*^9, 3.7531816266113567`*^9}, {3.7531818485978937`*^9, 
+   3.753181941648856*^9}, {3.753181975327026*^9, 3.753181976901577*^9}, {
+   3.75318546801507*^9, 3.753185513007131*^9}, {3.753185597066115*^9, 
+   3.753185657705818*^9}, {3.753185744515497*^9, 3.753185763211626*^9}, {
+   3.753185830935637*^9, 3.753185871987295*^9}, 
+   3.753185905049992*^9},ExpressionUUID->"09eae57e-490c-41ed-abcd-\
+b582021719d9"]
 },
 WindowSize->{866, 847},
-WindowMargins->{{-33, Automatic}, {0, Automatic}},
+WindowMargins->{{-30, Automatic}, {Automatic, 47}},
 Magnification->1.5,
 FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
@@ -178,7 +348,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 5548, 141, 1162, "Input",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"]
+Cell[558, 20, 12562, 311, 1913, "Input",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"]
 }
 ]
 *)
