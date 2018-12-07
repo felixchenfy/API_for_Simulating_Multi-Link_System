@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     14436,        371]
-NotebookOptionsPosition[     14125,        357]
-NotebookOutlinePosition[     14480,        373]
-CellTagsIndexPosition[     14437,        370]
+NotebookDataLength[     13882,        358]
+NotebookOptionsPosition[     13572,        344]
+NotebookOutlinePosition[     13926,        360]
+CellTagsIndexPosition[     13883,        357]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -56,22 +56,8 @@ Cell[BoxData[
           RowBox[{"{", 
            RowBox[{"i", ",", "1", ",", 
             RowBox[{"Length", "[", "tmp", "]"}]}], "}"}]}], "]"}]}]}], 
-      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"myOpenFile", "[", "filename_", "]"}], ":=", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", "nb1", "}"}], ",", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"nb1", "=", 
-        RowBox[{"NotebookOpen", "[", 
-         RowBox[{
-          RowBox[{"NotebookDirectory", "[", "]"}], "<>", "filename"}], 
-         "]"}]}], ";", "\n", 
-       RowBox[{"SelectionMove", "[", 
-        RowBox[{"nb1", ",", "All", ",", "Notebook"}], "]"}], ";", "\n", 
-       RowBox[{"SelectionEvaluate", "[", "nb1", "]"}], ";"}]}], "]"}]}], "\n",
-    "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", "\n", 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"lToMass", "[", "l_", "]"}], ":=", "l"}], "\[IndentingNewLine]", 
    RowBox[{
@@ -352,11 +338,12 @@ Cell[BoxData[
    3.753185657705818*^9}, {3.753185744515497*^9, 3.753185763211626*^9}, {
    3.753185830935637*^9, 3.753185871987295*^9}, 3.753185905049992*^9, {
    3.753189667909758*^9, 3.7531897336256657`*^9}, {3.753193500770018*^9, 
-   3.753193507828301*^9}},
- CellLabel->"In[7]:=",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"]
+   3.753193507828301*^9}, 
+   3.7532106978602037`*^9},ExpressionUUID->"09eae57e-490c-41ed-abcd-\
+b582021719d9"]
 },
 WindowSize->{866, 847},
-WindowMargins->{{158, Automatic}, {26, Automatic}},
+WindowMargins->{{158, Automatic}, {0, Automatic}},
 Magnification->1.5,
 FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
@@ -372,7 +359,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 13563, 335, 2117, "Input",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"]
+Cell[558, 20, 13010, 322, 2015, "Input",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"]
 }
 ]
 *)
