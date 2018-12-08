@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     63520,       1327]
-NotebookOptionsPosition[     62625,       1307]
-NotebookOutlinePosition[     62980,       1323]
-CellTagsIndexPosition[     62937,       1320]
+NotebookDataLength[     59211,       1226]
+NotebookOptionsPosition[     58319,       1206]
+NotebookOutlinePosition[     58673,       1222]
+CellTagsIndexPosition[     58630,       1219]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -336,33 +336,7 @@ Cell[BoxData[
    RowBox[{"(*", " ", 
     RowBox[{"impact", " ", "event"}], " ", "*)"}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"Clear", "[", "detectImpacts", "]"}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
     RowBox[{"cnt", "=", "0"}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-    "The", " ", "change", " ", "direction", " ", "method", " ", "and", " ", 
-     "this", " ", "impactTriggerStage", " ", "both", " ", "cannot", " ", 
-     RowBox[{"work", ".", " ", "I"}], " ", 
-     RowBox[{"don", "'"}], "t", " ", 
-     RowBox[{"why", ".", " ", "So"}], " ", "I", " ", "just", " ", "use", " ", 
-     "the", " ", "distance", " ", "threshold", " ", "checker", " ", "to", " ",
-      "detect", " ", 
-     RowBox[{"impact", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"impactTriggerStage", "=", "0"}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-      RowBox[{
-       RowBox[{
-        RowBox[{"0", ":", " ", "none"}], ";"}], " ", ">", "0"}], ":", " ", 
-      RowBox[{"Triggered", " ", "by", " ", "events", " ", "i"}]}], ",", " ", 
-     RowBox[{"but", " ", "matha", " ", "has", " ", "not", " ", 
-      RowBox[{"executed", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"detectImpacts", "[", "qsimp0_", "]"}], ":=", 
@@ -379,6 +353,7 @@ Cell[BoxData[
         "\[IndentingNewLine]", 
         RowBox[{"cnt", "=", 
          RowBox[{"cnt", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
         RowBox[{"rep", ":=", 
          RowBox[{"Table", "[", 
           RowBox[{
@@ -389,14 +364,9 @@ Cell[BoxData[
              RowBox[{"[", "i", "]"}], "]"}]}], ",", 
            RowBox[{"{", 
             RowBox[{"i", ",", "1", ",", "nVars"}], "}"}]}], "]"}]}], ";", 
-        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
         RowBox[{"disCurr", "=", 
          RowBox[{"\[Phi]sIsClose", "/.", "rep"}]}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{"cnt", "\[Equal]", "1"}], ",", 
-          RowBox[{"disPre", "=", "disCurr"}]}], "]"}], ";", 
         "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"For", "[", 
          RowBox[{
@@ -412,20 +382,6 @@ Cell[BoxData[
              RowBox[{"\[Phi]sIsInLine", "[", 
               RowBox[{"[", "i", "]"}], "]"}], "/.", "rep"}]}], ";", 
            "\[IndentingNewLine]", 
-           RowBox[{"(*", 
-            RowBox[{
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{
-                RowBox[{
-                 RowBox[{"(", 
-                  RowBox[{
-                   RowBox[{"disPre", "[", 
-                    RowBox[{"[", "i", "]"}], "]"}], "*", "dis"}], ")"}], 
-                 "\[LessEqual]", " ", "0.05"}], "&&", " ", "intheline"}], " ",
-                ",", 
-               RowBox[{"Break", "[", "]"}]}], "]"}], ";"}], "*)"}], 
-           "\[IndentingNewLine]", 
            RowBox[{"If", "[", 
             RowBox[{
              RowBox[{
@@ -435,34 +391,7 @@ Cell[BoxData[
              ",", 
              RowBox[{"Break", "[", "]"}]}], "]"}], ";"}]}], 
          "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-        "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"(*", 
-         RowBox[{
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{"impactTriggerStage", ">", "0"}], ",", 
-            "\[IndentingNewLine]", 
-            RowBox[{"(", 
-             RowBox[{
-              RowBox[{"FlagImpact", "=", "True"}], ";", 
-              RowBox[{"idxImpactCase", "=", "impactTriggerStage"}]}], ")"}], 
-            ",", "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"i", "\[Equal]", 
-                RowBox[{"n\[Phi]s", "+", "1"}]}], ",", 
-               RowBox[{"FlagImpact", "=", "False"}]}], "]"}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"i", "\[LessEqual]", "n\[Phi]s"}], ",", 
-               RowBox[{
-                RowBox[{"FlagImpact", "=", "True"}], ";", 
-                RowBox[{"impactTriggerStage", "=", "i"}], ";", 
-                RowBox[{"idxImpactCase", "=", "i"}]}]}], "]"}]}]}], 
-           "\[IndentingNewLine]", "]"}], ";"}], "*)"}], "\[IndentingNewLine]",
-         "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
         RowBox[{"If", "[", 
          RowBox[{
           RowBox[{"i", "\[Equal]", 
@@ -474,40 +403,9 @@ Cell[BoxData[
           RowBox[{"i", "\[LessEqual]", "n\[Phi]s"}], ",", 
           RowBox[{
            RowBox[{"FlagImpact", "=", "True"}], ";", 
-           RowBox[{"impactTriggerStage", "=", "i"}], ";", 
            RowBox[{"idxImpactCase", "=", "i"}]}]}], "]"}], ";", 
-        "\[IndentingNewLine]", "\[IndentingNewLine]", 
-        RowBox[{"(*", 
-         RowBox[{"If", "[", 
-          RowBox[{"FlagImpact", ",", 
-           RowBox[{
-            RowBox[{"Print", "[", 
-             RowBox[{
-             "\"\<disPre\>\"", ",", "disPre", ",", "\"\<,pre*dis:\>\"", ",", 
-              RowBox[{
-               RowBox[{"disPre", "[", 
-                RowBox[{"[", "7", "]"}], "]"}], "*", 
-               RowBox[{"disCurr", "[", 
-                RowBox[{"[", "7", "]"}], "]"}]}]}], "]"}], ";"}]}]}], "*)"}], 
-        "\[IndentingNewLine]", 
-        RowBox[{"(*", 
-         RowBox[{
-          RowBox[{"Print", "[", 
-           RowBox[{
-           "\"\<dis curr:\>\"", ",", "disCurr", ",", "\"\<, prev:\>\"", ",", 
-            "disPre"}], "]"}], ";", "\[IndentingNewLine]", 
-          RowBox[{"Print", "[", 
-           RowBox[{"\"\<    pre*dis:\>\"", ",", 
-            RowBox[{"disPre", "*", "disCurr"}], ",", "\"\<,in the line=\>\"", 
-            ",", "inlines"}], "]"}], ";", "\[IndentingNewLine]", 
-          RowBox[{"Print", "[", 
-           RowBox[{
-           "\"\<    i:\>\"", ",", "i", ",", "\"\<,FlagImpact=\>\"", ",", 
-            "FlagImpact"}], "]"}], ";"}], "*)"}], "\[IndentingNewLine]", 
-        "\[IndentingNewLine]", 
-        RowBox[{"disPre", "=", "disCurr"}], ";", "\[IndentingNewLine]", 
-        "FlagImpact"}]}], "\[IndentingNewLine]", "]"}]}], ";"}]}]}]], "Input",\
-
+        "\[IndentingNewLine]", "\[IndentingNewLine]", "FlagImpact"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}]}]}]], "Input",
  CellChangeTimes->{{3.753207834598749*^9, 3.7532080510250177`*^9}, 
    3.7532081710215*^9, {3.753208257900922*^9, 3.753208322227792*^9}, {
    3.753208394502795*^9, 3.753208464359561*^9}, {3.753208597506633*^9, 
@@ -546,9 +444,10 @@ Cell[BoxData[
    3.7532319889366837`*^9, 3.753231991409857*^9}, {3.753232101905052*^9, 
    3.7532321246369534`*^9}, {3.7532322752538633`*^9, 3.753232321989277*^9}, {
    3.7532326407493258`*^9, 3.7532327056424522`*^9}, {3.753232737210969*^9, 
-   3.753232746397929*^9}, {3.753232950895122*^9, 3.753232997538137*^9}},
- CellLabel->
-  "In[956]:=",ExpressionUUID->"2306f250-5374-4a7e-996d-29957b2bea0e"],
+   3.753232746397929*^9}, {3.753232950895122*^9, 3.753232997538137*^9}, {
+   3.753236989464443*^9, 
+   3.753237023327689*^9}},ExpressionUUID->"2306f250-5374-4a7e-996d-\
+29957b2bea0e"],
 
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.753209550159411*^9, 3.753209551854725*^9}},
@@ -1305,8 +1204,8 @@ Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.753152314106468*^9, 3.753152328794524*^9}},
  CellLabel->"In[46]:=",ExpressionUUID->"ac0145c6-4762-46b0-86ee-726af44fa57c"]
 },
-WindowSize->{1080, 826},
-WindowMargins->{{26, Automatic}, {52, Automatic}},
+WindowSize->{1077, 826},
+WindowMargins->{{0, Automatic}, {67, Automatic}},
 Magnification->1.5,
 FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
@@ -1322,13 +1221,13 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 23684, 530, 4279, "Input",ExpressionUUID->"2306f250-5374-4a7e-996d-29957b2bea0e"],
-Cell[24245, 552, 175, 3, 47, "Input",ExpressionUUID->"8f9a3633-666d-4bb6-9274-3b66b22040cb"],
-Cell[24423, 557, 22654, 434, 2301, "Input",ExpressionUUID->"e0ff026a-7148-404f-ab63-484869baeb59"],
-Cell[47080, 993, 2253, 52, 354, "Input",ExpressionUUID->"40936615-91b9-4646-bde0-8d7efcef123a"],
-Cell[49336, 1047, 2568, 35, 47, "Input",ExpressionUUID->"fa9669e8-62b9-43d5-a0de-8bf4be91992f"],
-Cell[51907, 1084, 10540, 217, 1272, "Input",ExpressionUUID->"875d521e-6ce2-4b9a-b80a-58a4c52961fe"],
-Cell[62450, 1303, 171, 2, 47, "Input",ExpressionUUID->"ac0145c6-4762-46b0-86ee-726af44fa57c"]
+Cell[558, 20, 19378, 429, 3327, "Input",ExpressionUUID->"2306f250-5374-4a7e-996d-29957b2bea0e"],
+Cell[19939, 451, 175, 3, 47, "Input",ExpressionUUID->"8f9a3633-666d-4bb6-9274-3b66b22040cb"],
+Cell[20117, 456, 22654, 434, 2301, "Input",ExpressionUUID->"e0ff026a-7148-404f-ab63-484869baeb59"],
+Cell[42774, 892, 2253, 52, 354, "Input",ExpressionUUID->"40936615-91b9-4646-bde0-8d7efcef123a"],
+Cell[45030, 946, 2568, 35, 47, "Input",ExpressionUUID->"fa9669e8-62b9-43d5-a0de-8bf4be91992f"],
+Cell[47601, 983, 10540, 217, 1272, "Input",ExpressionUUID->"875d521e-6ce2-4b9a-b80a-58a4c52961fe"],
+Cell[58144, 1202, 171, 2, 47, "Input",ExpressionUUID->"ac0145c6-4762-46b0-86ee-726af44fa57c"]
 }
 ]
 *)
