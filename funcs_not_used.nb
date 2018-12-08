@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     12856,        353]
-NotebookOptionsPosition[     12372,        338]
-NotebookOutlinePosition[     12708,        353]
-CellTagsIndexPosition[     12665,        350]
+NotebookDataLength[     14243,        390]
+NotebookOptionsPosition[     13665,        374]
+NotebookOutlinePosition[     13998,        389]
+CellTagsIndexPosition[     13955,        386]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -334,10 +334,46 @@ Cell[BoxData[{
       RowBox[{"FlagNoImpact", "=", "i"}], ";", "True"}]}], "]"}]}], 
   RowBox[{"(*", 
    RowBox[{"has", " ", "impact"}], "*)"}], "\[IndentingNewLine]", 
-  "]"}]}], "Input",ExpressionUUID->"2024b8b2-54f9-445f-809b-027236dbfb28"]
+  "]"}]}], "Input",ExpressionUUID->"2024b8b2-54f9-445f-809b-027236dbfb28"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"generate", " ", "a", " ", "list", " ", "of", " ", "functions"}], 
+    ",", " ", 
+    RowBox[{"waited", " ", "to", " ", "be", " ", "unholded"}]}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"idxImpactCase", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"idxImpactCaseAssign", "[", "x_", "]"}], ":=", 
+    RowBox[{"Hold", "[", 
+     RowBox[{
+      RowBox[{"Print", "[", "x", "]"}], ";", 
+      RowBox[{"idxImpactCase", "=", "x"}], ";", 
+      RowBox[{"Throw", "[", 
+       RowBox[{
+        RowBox[{"end", "=", "t"}], ",", "\"\<StopIntegration\>\""}], "]"}], 
+      ";"}], "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{"idxImpactCaseList", "=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"idxImpactCaseAssign", "[", "i", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", "n\[Phi]s"}], "}"}]}], "]"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ReleaseHold", "[", "idxImpactCaseList", "]"}], ";"}], 
+   "\[IndentingNewLine]", "idxImpactCase", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.753284265300518*^9, 
+  3.7532842789361067`*^9}},ExpressionUUID->"53883d97-7083-400a-8efe-\
+e59a07df0694"]
 },
 WindowSize->{1358, 847},
-WindowMargins->{{0, Automatic}, {-689, Automatic}},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
 FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
 ]
@@ -354,7 +390,8 @@ CellTagsIndex->{}
 Notebook[{
 Cell[558, 20, 5607, 137, 786, "Input",ExpressionUUID->"2a0ae48c-8573-467a-9b1a-1f240f6b9e36"],
 Cell[6168, 159, 4372, 128, 423, "Input",ExpressionUUID->"6ebf75ad-2895-4475-9a5b-4359b1822815"],
-Cell[10543, 289, 1825, 47, 239, "Input",ExpressionUUID->"2024b8b2-54f9-445f-809b-027236dbfb28"]
+Cell[10543, 289, 1825, 47, 239, "Input",ExpressionUUID->"2024b8b2-54f9-445f-809b-027236dbfb28"],
+Cell[12371, 338, 1290, 34, 193, "Input",ExpressionUUID->"53883d97-7083-400a-8efe-e59a07df0694"]
 }
 ]
 *)
