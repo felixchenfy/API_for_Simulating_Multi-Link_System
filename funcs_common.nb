@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     13957,        358]
-NotebookOptionsPosition[     13647,        344]
-NotebookOutlinePosition[     14001,        360]
-CellTagsIndexPosition[     13958,        357]
+NotebookDataLength[     17197,        436]
+NotebookOptionsPosition[     16888,        422]
+NotebookOutlinePosition[     17241,        438]
+CellTagsIndexPosition[     17198,        435]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -101,43 +101,7 @@ Cell[BoxData[
         RowBox[{"nVars", "+", "nDOF"}]}], ";", "\[IndentingNewLine]", 
        RowBox[{"{", 
         RowBox[{"objqs", ",", "objqsvars"}], "}"}]}]}], "\[IndentingNewLine]",
-      "]"}]}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"pushPEnds", "[", 
-     RowBox[{"T_", ",", "l_"}], "]"}], ":=", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"pFront", ",", "pBack"}], "}"}], ",", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"pFront", "=", 
-        RowBox[{
-         RowBox[{"T", ".", 
-          SuperscriptBox[
-           RowBox[{"{", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"l", "/", "2"}], ",", "0", ",", "0", ",", "1"}], "}"}], 
-            "}"}], "\[Transpose]"]}], "//", "Simplify"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"pBack", "=", 
-        RowBox[{
-         RowBox[{"T", ".", 
-          SuperscriptBox[
-           RowBox[{"{", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"-", "l"}], "/", "2"}], ",", "0", ",", "0", ",", "1"}],
-              "}"}], "}"}], "\[Transpose]"]}], "//", "Simplify"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"AppendTo", "[", 
-        RowBox[{"pFronts", ",", "pFront"}], "]"}], ";", "\[IndentingNewLine]", 
-       RowBox[{"AppendTo", "[", 
-        RowBox[{"pBacks", ",", "pBack"}], "]"}], ";", "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{"pFront", ",", "pBack"}], "}"}]}]}], "]"}]}], 
-   "\[IndentingNewLine]", 
+      "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"UpdateObjVertexs", "[", 
@@ -274,6 +238,76 @@ Cell[BoxData[
          RowBox[{"impObjVertexGroupIDs", ",", "nthGroup"}], "]"}], ";"}]}], 
       "\[IndentingNewLine]", "]"}]}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{
+    RowBox[{"pushPEnds", "[", 
+     RowBox[{"T_", ",", "l_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"pFront", ",", "pBack", ",", "TFront", ",", "TBack"}], "}"}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"pFront", "=", 
+        RowBox[{
+         RowBox[{"T", ".", 
+          SuperscriptBox[
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"l", "/", "2"}], ",", "0", ",", "0", ",", "1"}], "}"}], 
+            "}"}], "\[Transpose]"]}], "//", "Simplify"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"pBack", "=", 
+        RowBox[{
+         RowBox[{"T", ".", 
+          SuperscriptBox[
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "l"}], "/", "2"}], ",", "0", ",", "0", ",", "1"}],
+              "}"}], "}"}], "\[Transpose]"]}], "//", "Simplify"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"TFront", "=", 
+        RowBox[{"T", ".", 
+         RowBox[{"Trans4", "[", 
+          RowBox[{
+           RowBox[{"l", "/", "2"}], ",", "0"}], "]"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"TBack", "=", 
+        RowBox[{"T", ".", 
+         RowBox[{"Trans4", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "l"}], "/", "2"}], ",", "0"}], "]"}]}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"pFront", "=", 
+        RowBox[{"FullSimplify", "[", 
+         RowBox[{"pFront", ",", 
+          RowBox[{"qs", "\[Element]", "Reals"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"pBack", "=", 
+        RowBox[{"FullSimplify", "[", 
+         RowBox[{"pBack", ",", 
+          RowBox[{"qs", "\[Element]", "Reals"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"TFront", "=", 
+        RowBox[{"FullSimplify", "[", 
+         RowBox[{"TFront", ",", 
+          RowBox[{"qs", "\[Element]", "Reals"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"TBack", "=", 
+        RowBox[{"FullSimplify", "[", 
+         RowBox[{"TBack", ",", 
+          RowBox[{"qs", "\[Element]", "Reals"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"AppendTo", "[", 
+        RowBox[{"pFronts", ",", "pFront"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"AppendTo", "[", 
+        RowBox[{"pBacks", ",", "pBack"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"pFront", ",", "pBack", ",", "TFront", ",", "TBack"}], 
+        "}"}]}]}], "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
     RowBox[{
      RowBox[{"PushVertex", "[", 
       RowBox[{"p_", ",", "nthGroup_"}], "]"}], ":=", 
@@ -300,31 +334,69 @@ Cell[BoxData[
         "\[IndentingNewLine]", 
         RowBox[{"AppendTo", "[", 
          RowBox[{"impObjEdgeGroupIDs", ",", "nthGroup"}], "]"}], ";"}]}], 
-      "]"}]}], ";"}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"CalcAndPushT", "[", 
-     RowBox[{"x_", ",", "y_", ",", "\[Theta]_", ",", "l_"}], "]"}], ":=", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", "T", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"pushT", "[", "T_", "]"}], ":=", 
+     RowBox[{"Module", "[", 
       RowBox[{
-       RowBox[{"T", "=", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"Trans4", "[", 
-           RowBox[{"x", ",", "y"}], "]"}], ".", 
-          RowBox[{"Rotz4", "[", "\[Theta]", "]"}]}], "//", "Simplify"}]}], 
-       ";", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"pFront", ",", "pBack"}], "}"}], "=", 
-        RowBox[{"pushPEnds", "[", 
-         RowBox[{"T", ",", "l"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
        RowBox[{"AppendTo", "[", 
-        RowBox[{"Ts", ",", "T"}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Ts", ",", "T"}], "]"}]}], "\[IndentingNewLine]", "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"CalcAndPushT", "[", 
+      RowBox[{"x_", ",", "y_", ",", "\[Theta]_", ",", "l_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", "T", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"T", "=", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Trans4", "[", 
+            RowBox[{"x", ",", "y"}], "]"}], ".", 
+           RowBox[{"Rotz4", "[", "\[Theta]", "]"}]}], "//", "Simplify"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"T", "=", 
+         RowBox[{"FullSimplify", "[", 
+          RowBox[{"T", ",", 
+           RowBox[{"qs", "\[Element]", "Reals"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"pFront", ",", "pBack", ",", "TFront", ",", "TBack"}], 
+          "}"}], "=", 
+         RowBox[{"pushPEnds", "[", 
+          RowBox[{"T", ",", "l"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"pushT", "[", "T", "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{
+         "T", ",", "pFront", ",", "pBack", ",", "TFront", ",", "TBack"}], 
+         "}"}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"pushLensMassInertia", "[", "l_", "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
        RowBox[{"{", 
-        RowBox[{"T", ",", "pFront", ",", "pBack"}], "}"}]}]}], 
-     "]"}]}]}]}]], "Input",
+        RowBox[{"mass", ",", "inertia"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"mass", "=", 
+         RowBox[{"lToMass", "[", "l", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"inertia", "=", 
+         RowBox[{"lToInertia", "[", "l", "]"}]}], ";", "\[IndentingNewLine]", 
+        
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"masses", ",", "mass"}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"inertias", ",", "inertia"}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"lens", ",", "l"}], "]"}], ";"}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}]}]}]], "Input",
  CellChangeTimes->{
   3.753178871503525*^9, {3.753178943913477*^9, 3.753179051729616*^9}, {
    3.753179095527733*^9, 3.753179124041339*^9}, {3.753179218829652*^9, 
@@ -339,11 +411,17 @@ Cell[BoxData[
    3.753185830935637*^9, 3.753185871987295*^9}, 3.753185905049992*^9, {
    3.753189667909758*^9, 3.7531897336256657`*^9}, {3.753193500770018*^9, 
    3.753193507828301*^9}, {3.753217015323701*^9, 3.7532170156708612`*^9}, {
-   3.753228862211137*^9, 3.753228870966243*^9}},
- CellLabel->"In[25]:=",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"]
+   3.753228862211137*^9, 3.753228870966243*^9}, {3.753233217432487*^9, 
+   3.7532332334820957`*^9}, {3.7532342316644773`*^9, 
+   3.7532344380860023`*^9}, {3.753234847528041*^9, 3.753234848955483*^9}, {
+   3.753235072890409*^9, 3.7532350745580587`*^9}, {3.753235112181641*^9, 
+   3.753235131310133*^9}, {3.753235457502335*^9, 3.75323549597366*^9}, 
+   3.753235738110529*^9},
+ CellLabel->
+  "In[1623]:=",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"]
 },
 WindowSize->{866, 847},
-WindowMargins->{{158, Automatic}, {0, Automatic}},
+WindowMargins->{{33, Automatic}, {0, Automatic}},
 Magnification->1.5,
 FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
@@ -359,7 +437,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 13085, 322, 1947, "Input",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"]
+Cell[558, 20, 16326, 400, 2787, "Input",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"]
 }
 ]
 *)
