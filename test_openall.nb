@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      2847,         85]
-NotebookOptionsPosition[      2263,         68]
-NotebookOutlinePosition[      2618,         84]
-CellTagsIndexPosition[      2575,         81]
+NotebookDataLength[      3016,         88]
+NotebookOptionsPosition[      2432,         71]
+NotebookOutlinePosition[      2787,         87]
+CellTagsIndexPosition[      2744,         84]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -54,11 +54,14 @@ Cell[BoxData[{
   RowBox[{"myOpenFile", "[", "\"\<funcs_NDSolve.nb\>\"", "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"myOpenFile", "[", "\"\<Untitled-2.nb\>\"", "]"}], ";"}]}], "Input",\
-
+  RowBox[{"myOpenFile", "[", "\"\<Untitled-2.nb\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"myOpenFile", "[", "\"\<main.nb\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.753207284755443*^9, 3.753207299072041*^9}, {
-  3.7532733249468327`*^9, 
-  3.753273346725873*^9}},ExpressionUUID->"e754d45d-2801-4246-998b-\
+  3.7532733249468327`*^9, 3.753273346725873*^9}, {3.753282761090197*^9, 
+  3.753282770793353*^9}},ExpressionUUID->"e754d45d-2801-4246-998b-\
 6c299b15c933"],
 
 Cell[BoxData[
@@ -85,8 +88,8 @@ CellTagsIndex->{}
 Notebook[{
 Cell[558, 20, 215, 4, 47, "Input",ExpressionUUID->"42324f1d-d8c9-459e-a220-5e891c974b9c"],
 Cell[776, 26, 722, 17, 150, "Input",ExpressionUUID->"ebfd21b0-7c66-4d6e-ac5e-e6c55631fcdb"],
-Cell[1501, 45, 602, 16, 150, "Input",ExpressionUUID->"e754d45d-2801-4246-998b-6c299b15c933"],
-Cell[2106, 63, 153, 3, 47, "Input",ExpressionUUID->"51cc278f-71de-4728-bf59-86f6b38ca59f"]
+Cell[1501, 45, 771, 19, 218, "Input",ExpressionUUID->"e754d45d-2801-4246-998b-6c299b15c933"],
+Cell[2275, 66, 153, 3, 47, "Input",ExpressionUUID->"51cc278f-71de-4728-bf59-86f6b38ca59f"]
 }
 ]
 *)
