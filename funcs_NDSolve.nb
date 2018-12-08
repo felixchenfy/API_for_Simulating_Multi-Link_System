@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     62941,       1317]
-NotebookOptionsPosition[     62046,       1297]
-NotebookOutlinePosition[     62401,       1313]
-CellTagsIndexPosition[     62358,       1310]
+NotebookDataLength[     63520,       1327]
+NotebookOptionsPosition[     62625,       1307]
+NotebookOutlinePosition[     62980,       1323]
+CellTagsIndexPosition[     62937,       1320]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -340,20 +340,30 @@ Cell[BoxData[
    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"cnt", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "The", " ", "change", " ", "direction", " ", "method", " ", "and", " ", 
+     "this", " ", "impactTriggerStage", " ", "both", " ", "cannot", " ", 
+     RowBox[{"work", ".", " ", "I"}], " ", 
+     RowBox[{"don", "'"}], "t", " ", 
+     RowBox[{"why", ".", " ", "So"}], " ", "I", " ", "just", " ", "use", " ", 
+     "the", " ", "distance", " ", "threshold", " ", "checker", " ", "to", " ",
+      "detect", " ", 
+     RowBox[{"impact", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"impactTriggerStage", "=", "0"}], ";", 
-    RowBox[{"(*", 
+    RowBox[{"impactTriggerStage", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
      RowBox[{
       RowBox[{
        RowBox[{
-        RowBox[{
-         RowBox[{"0", ":", " ", "none"}], ";"}], " ", "\[IndentingNewLine]", 
-        ">", "0"}], ":", " ", 
-       RowBox[{"Triggered", " ", "by", " ", "events", " ", "i"}]}], ",", " ", 
-      
-      RowBox[{"but", " ", "matha", " ", "has", " ", "not", " ", 
-       RowBox[{"executed", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
-    "\[IndentingNewLine]", 
+        RowBox[{"0", ":", " ", "none"}], ";"}], " ", ">", "0"}], ":", " ", 
+      RowBox[{"Triggered", " ", "by", " ", "events", " ", "i"}]}], ",", " ", 
+     RowBox[{"but", " ", "matha", " ", "has", " ", "not", " ", 
+      RowBox[{"executed", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
     RowBox[{
      RowBox[{"detectImpacts", "[", "qsimp0_", "]"}], ":=", 
      RowBox[{"Module", "[", 
@@ -536,9 +546,9 @@ Cell[BoxData[
    3.7532319889366837`*^9, 3.753231991409857*^9}, {3.753232101905052*^9, 
    3.7532321246369534`*^9}, {3.7532322752538633`*^9, 3.753232321989277*^9}, {
    3.7532326407493258`*^9, 3.7532327056424522`*^9}, {3.753232737210969*^9, 
-   3.753232746397929*^9}},
+   3.753232746397929*^9}, {3.753232950895122*^9, 3.753232997538137*^9}},
  CellLabel->
-  "In[919]:=",ExpressionUUID->"2306f250-5374-4a7e-996d-29957b2bea0e"],
+  "In[956]:=",ExpressionUUID->"2306f250-5374-4a7e-996d-29957b2bea0e"],
 
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.753209550159411*^9, 3.753209551854725*^9}},
@@ -1312,13 +1322,13 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 23105, 520, 4143, "Input",ExpressionUUID->"2306f250-5374-4a7e-996d-29957b2bea0e"],
-Cell[23666, 542, 175, 3, 47, "Input",ExpressionUUID->"8f9a3633-666d-4bb6-9274-3b66b22040cb"],
-Cell[23844, 547, 22654, 434, 2301, "Input",ExpressionUUID->"e0ff026a-7148-404f-ab63-484869baeb59"],
-Cell[46501, 983, 2253, 52, 354, "Input",ExpressionUUID->"40936615-91b9-4646-bde0-8d7efcef123a"],
-Cell[48757, 1037, 2568, 35, 47, "Input",ExpressionUUID->"fa9669e8-62b9-43d5-a0de-8bf4be91992f"],
-Cell[51328, 1074, 10540, 217, 1272, "Input",ExpressionUUID->"875d521e-6ce2-4b9a-b80a-58a4c52961fe"],
-Cell[61871, 1293, 171, 2, 47, "Input",ExpressionUUID->"ac0145c6-4762-46b0-86ee-726af44fa57c"]
+Cell[558, 20, 23684, 530, 4279, "Input",ExpressionUUID->"2306f250-5374-4a7e-996d-29957b2bea0e"],
+Cell[24245, 552, 175, 3, 47, "Input",ExpressionUUID->"8f9a3633-666d-4bb6-9274-3b66b22040cb"],
+Cell[24423, 557, 22654, 434, 2301, "Input",ExpressionUUID->"e0ff026a-7148-404f-ab63-484869baeb59"],
+Cell[47080, 993, 2253, 52, 354, "Input",ExpressionUUID->"40936615-91b9-4646-bde0-8d7efcef123a"],
+Cell[49336, 1047, 2568, 35, 47, "Input",ExpressionUUID->"fa9669e8-62b9-43d5-a0de-8bf4be91992f"],
+Cell[51907, 1084, 10540, 217, 1272, "Input",ExpressionUUID->"875d521e-6ce2-4b9a-b80a-58a4c52961fe"],
+Cell[62450, 1303, 171, 2, 47, "Input",ExpressionUUID->"ac0145c6-4762-46b0-86ee-726af44fa57c"]
 }
 ]
 *)
