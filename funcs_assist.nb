@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     27241,        690]
-NotebookOptionsPosition[     26834,        675]
-NotebookOutlinePosition[     27190,        691]
-CellTagsIndexPosition[     27147,        688]
+NotebookDataLength[     27493,        694]
+NotebookOptionsPosition[     27086,        679]
+NotebookOutlinePosition[     27442,        695]
+CellTagsIndexPosition[     27399,        692]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -78,7 +78,8 @@ Cell[BoxData[
    3.753235131310133*^9}, {3.753235457502335*^9, 3.75323549597366*^9}, 
    3.753235738110529*^9, 3.753296951174048*^9, {3.7532969980691957`*^9, 
    3.753297052791217*^9}, 3.7533056435253077`*^9},
- CellLabel->"In[26]:=",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"],
+ CellLabel->
+  "In[280]:=",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"],
 
 Cell[BoxData[
  RowBox[{
@@ -346,6 +347,8 @@ Cell[BoxData[
           RowBox[{"T", ",", 
            RowBox[{"qs", "\[Element]", "Reals"}]}], "]"}]}], ";", 
         "\[IndentingNewLine]", 
+        RowBox[{"T", "=", 
+         RowBox[{"Chop", "[", "T", "]"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"{", 
           RowBox[{"pFront", ",", "pBack", ",", "TFront", ",", "TBack"}], 
@@ -399,8 +402,8 @@ Cell[BoxData[
         RowBox[{"eqd", "[", 
          RowBox[{"[", "1", "]"}], "]"}], "-", 
         RowBox[{"eqd", "[", 
-         RowBox[{"[", "2", "]"}], "]"}]}]}], "]"}]}], ";"}], "\n", 
-   "\[IndentingNewLine]", 
+         RowBox[{"[", "2", "]"}], "]"}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{
      RowBox[{
@@ -409,8 +412,7 @@ Cell[BoxData[
         RowBox[{"--", " ", "Some"}]}]}], " ", "functions", " ", "for", " ", 
       "printing", " ", "useful", " ", 
       RowBox[{
-       RowBox[{"variables", " ", "--"}], "--"}]}], "-"}], "*)"}], 
-   "\[IndentingNewLine]", 
+       RowBox[{"variables", " ", "--"}], "--"}]}], "-"}], "*)"}], "\n", 
    RowBox[{
     RowBox[{"printImpactCases", ":=", 
      RowBox[{"{", "\[IndentingNewLine]", 
@@ -510,7 +512,7 @@ Cell[BoxData[
            RowBox[{"Piecewise", "[", 
             RowBox[{"\"\<HamHist\>\"", "/.", "data"}], "]"}], "]"}], ",", 
           RowBox[{"{", 
-           RowBox[{"t", ",", "0", ",", "2"}], "}"}], ",", 
+           RowBox[{"t", ",", "0", ",", "timeend"}], "}"}], ",", 
           RowBox[{"PlotLegends", "\[Rule]", "\"\<Hamilton\>\""}], ",", "\n", 
           "\t", 
           RowBox[{"PlotRange", "->", "Automatic"}], ",", 
@@ -669,12 +671,14 @@ Cell[BoxData[
    3.753309949018037*^9, 3.753309977039103*^9}, {3.7533100090158377`*^9, 
    3.7533101111169443`*^9}, {3.753312410933025*^9, 3.753312414497487*^9}, {
    3.7533192311846*^9, 3.7533192362031927`*^9}, {3.753319779564603*^9, 
-   3.753319780892671*^9}, {3.753320141755331*^9, 3.753320154239847*^9}},
+   3.753319780892671*^9}, {3.753320141755331*^9, 3.753320154239847*^9}, {
+   3.753323158729012*^9, 3.753323158995631*^9}, {3.753323385538278*^9, 
+   3.753323386971078*^9}, {3.753323517909178*^9, 3.753323523511908*^9}},
  CellLabel->
-  "In[489]:=",ExpressionUUID->"af4b6a5c-0c7b-43ac-b72b-29c2dc095927"]
+  "In[282]:=",ExpressionUUID->"af4b6a5c-0c7b-43ac-b72b-29c2dc095927"]
 },
 WindowSize->{1300, 681},
-WindowMargins->{{169, Automatic}, {76, Automatic}},
+WindowMargins->{{146, Automatic}, {62, Automatic}},
 Magnification->1.5,
 FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
@@ -690,8 +694,8 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 2858, 60, 218, "Input",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"],
-Cell[3419, 82, 23411, 591, 4400, "Input",ExpressionUUID->"af4b6a5c-0c7b-43ac-b72b-29c2dc095927"]
+Cell[558, 20, 2862, 61, 218, "Input",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"],
+Cell[3423, 83, 23659, 594, 4434, "Input",ExpressionUUID->"af4b6a5c-0c7b-43ac-b72b-29c2dc095927"]
 }
 ]
 *)
