@@ -10,14 +10,48 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     10695,        289]
-NotebookOptionsPosition[     10010,        271]
-NotebookOutlinePosition[     10365,        287]
-CellTagsIndexPosition[     10322,        284]
+NotebookDataLength[     12116,        324]
+NotebookOptionsPosition[     11241,        304]
+NotebookOutlinePosition[     11597,        320]
+CellTagsIndexPosition[     11554,        317]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[BoxData[
+ RowBox[{"Quit", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.753308373753524*^9, 3.753308374894115*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"d2ec306c-fa6e-4959-88cb-c71e55ca0de9"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"myOpenFile", "[", "filename_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "nb1", "}"}], ",", 
+    RowBox[{
+     RowBox[{"nb1", "=", 
+      RowBox[{"NotebookOpen", "[", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\</\>\"", "<>", 
+        "filename"}], "]"}]}], ";", "\n", "     ", 
+     RowBox[{"SelectionMove", "[", 
+      RowBox[{"nb1", ",", "All", ",", "Notebook"}], "]"}], ";", "\n", "     ", 
+     RowBox[{"SelectionEvaluate", "[", "nb1", "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"myOpenFile", "[", "\"\<funcs_math.nb\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"myOpenFile", "[", "\"\<funcs_assist.nb\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"myOpenFile", "[", "\"\<funcs_main.nb\>\"", "]"}], ";"}]}], "Input",\
+
+ CellChangeTimes->{{3.753308380956698*^9, 
+  3.753308414702188*^9}},ExpressionUUID->"d53147a6-be5d-4859-9bc8-\
+5ed97a69a79c"],
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"(*", 
@@ -202,8 +236,7 @@ Cell[BoxData[
    3.753304091269246*^9, 3.753304119006625*^9}, 3.753304302058569*^9, 
    3.7533043720911417`*^9, {3.753304509436829*^9, 3.753304510623822*^9}, 
    3.753304734900848*^9, 3.7533048140290833`*^9},
- CellLabel->
-  "In[2881]:=",ExpressionUUID->"c2eccd86-0355-48ce-9552-af9443bc318b"],
+ CellLabel->"In[1]:=",ExpressionUUID->"c2eccd86-0355-48ce-9552-af9443bc318b"],
 
 Cell[BoxData[
  RowBox[{
@@ -270,7 +303,7 @@ Cell[BoxData["plotVariablesValues"], "Input",ExpressionUUID->"5ad946cb-16e5-4d94
 Cell[BoxData["plotAnimation"], "Input",ExpressionUUID->"376ba369-fec8-4d3d-9eee-9c3a11f5ddd4"]
 },
 WindowSize->{919, 713},
-WindowMargins->{{44, Automatic}, {136, Automatic}},
+WindowMargins->{{105, Automatic}, {Automatic, 133}},
 Magnification->1.5,
 FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
@@ -286,11 +319,13 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 7409, 185, 1329, "Input",ExpressionUUID->"c2eccd86-0355-48ce-9552-af9443bc318b"],
-Cell[7970, 207, 1427, 45, 354, "Input",ExpressionUUID->"bba9cd65-ac4f-41df-b71c-9ad58c33fcef"],
-Cell[9400, 254, 406, 11, 82, "Input",ExpressionUUID->"ee6740ef-63f1-4d03-96d7-4ac10fa425bd"],
-Cell[9809, 267, 100, 0, 47, "Input",ExpressionUUID->"5ad946cb-16e5-4d94-a9e8-8dfbaabe1d1f"],
-Cell[9912, 269, 94, 0, 47, "Input",ExpressionUUID->"376ba369-fec8-4d3d-9eee-9c3a11f5ddd4"]
+Cell[558, 20, 196, 3, 47, "Input",ExpressionUUID->"d2ec306c-fa6e-4959-88cb-c71e55ca0de9"],
+Cell[757, 25, 1035, 27, 320, "Input",ExpressionUUID->"d53147a6-be5d-4859-9bc8-5ed97a69a79c"],
+Cell[1795, 54, 7403, 184, 1306, "Input",ExpressionUUID->"c2eccd86-0355-48ce-9552-af9443bc318b"],
+Cell[9201, 240, 1427, 45, 354, "Input",ExpressionUUID->"bba9cd65-ac4f-41df-b71c-9ad58c33fcef"],
+Cell[10631, 287, 406, 11, 82, "Input",ExpressionUUID->"ee6740ef-63f1-4d03-96d7-4ac10fa425bd"],
+Cell[11040, 300, 100, 0, 47, "Input",ExpressionUUID->"5ad946cb-16e5-4d94-a9e8-8dfbaabe1d1f"],
+Cell[11143, 302, 94, 0, 47, "Input",ExpressionUUID->"376ba369-fec8-4d3d-9eee-9c3a11f5ddd4"]
 }
 ]
 *)
