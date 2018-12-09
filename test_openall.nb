@@ -72,7 +72,7 @@ Cell[BoxData[
   "In[1669]:=",ExpressionUUID->"51cc278f-71de-4728-bf59-86f6b38ca59f"]
 },
 WindowSize->{1282, 958},
-WindowMargins->{{Automatic, 118}, {-513, Automatic}},
+WindowMargins->{{Automatic, 195}, {-426, Automatic}},
 Magnification->1.5,
 FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"

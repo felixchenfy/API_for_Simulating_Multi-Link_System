@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     19745,        568]
+NotebookDataLength[     19747,        568]
 NotebookOptionsPosition[     19435,        554]
-NotebookOutlinePosition[     19789,        570]
-CellTagsIndexPosition[     19746,        567]
+NotebookOutlinePosition[     19791,        570]
+CellTagsIndexPosition[     19748,        567]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -553,7 +553,7 @@ Cell[BoxData[
  CellLabel->"In[7]:=",ExpressionUUID->"f54ce7a4-ddc0-40be-a90b-f01bbd313b62"]
 },
 WindowSize->{1141, 707},
-WindowMargins->{{0, Automatic}, {Automatic, 88}},
+WindowMargins->{{-81, Automatic}, {45, Automatic}},
 Magnification->1.5,
 FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
