@@ -1,12 +1,14 @@
-
 # Report of ME314 Final Project
 # Part 2
 # Encapsulation of Functions for Simulating Multi-link System
 ## Feiyu Chen
 
+This is the 2nd Part of my report.   
+While the 1st part focuses on describing what system I simualted, this part talks more about my encapsulated "createLink" functions, how they are used, technical detials, and problems and drawbacks.
+
 # 1. Introduction
 
-It can be a big headache to hard code the simulation of multi-link system in Mathematica, as it's trivial to type in all formulas and to deal with all kinds of weired bugs. The goal of this project is to reduce such pain by wrapping up an API (Application Programming Interface) so users could achieve the simulation by using simple functions. (Another goal is to make this a cool final project.)
+It can be a big headache to hardcode the simulation of multi-link system in Mathematica, as it's trivial to type in all formulas and to deal with all kinds of weired bugs. The goal of this project is to reduce such pain by wrapping up an API (Application Programming Interface) so users could achieve the simulation by using simple functions. (Another goal is to make this a cool final project.)
 
 The core of the API is a set of functions called "createLink", with applications of creating links, triangle (polygon), and wall. A screen shot of my project's video demo is shown here:
 ![](/images/scene.png)
@@ -80,27 +82,29 @@ After creating these links, you can simply run the code and see the animation.
     I push varibles into a list, and use vector/matrix operation to compute all equations.
     
 # 6 Problems
-* The total DOF had better <10, and not too many links. Otherwise it will cost too much time to compute impacts and do NDSolve.
-* Fail to detect some impacts:
-    
-    Guess 1:
+* **Slow**  
+    Keep the total DOF<10 and links<15, and the simulation will take about 1 minute (with step size == 0.01). Otherwise it will cost too much time to compute impacts and do NDSolve.
+* **Fail to detect some impacts**  
+    Sometimes, one link will stick into the surface of the polygon.
+
+    Guess 1: Need smaller integration step  
     I tried to use NDSolve's EventLocator's multi-event function, but failed (I couldn't put a list varible there). So I manually code it to detect multiple impacts. Its problem is, if I detect an impact at time i, I need to silence it in time i+1, and then it can detect impacts later. Thus, the only case of not detecting impact that I can image is the vertex go through the edge in 2 simulation cycle. (If using EventLocator's multi-event, the special case would be 1 simulation cycle.)
 
-    Guess 2: I believe there are problems that cause this bug. But I don't know what they are.
+    Guess 2: Other reasons  
+    I believe there are problems that cause this bug. But I don't know what they are.
 
-    Solution 1: May be I can solve the problem by detecting the change of sign of the distance to know if a vertex goes through the edge. But its impact criteria would be a little bit more complex than before, and I'm still worrying about the edge cases. I'll try it next time.
+    Solution 1: Use the sign of distance instead of threshold  
+    May be I can solve the problem by detecting the change of sign of the distance to know if a vertex goes through the edge. But its impact criteria would be a little bit more complex than before, and I'm still worrying about the edge cases. I'll try it next time.
 
-* Constraint: When applying constraint to a configuration variable, we must make sure that this variable won't move perpendicular to the constraint surface. Two cases (which are not subject to the solution of EL-eqs) can cause problem of making total energy not conserved:  
+* **Cautions with Constraint**: When applying constraint to a configuration variable, we must make sure that this variable won't move perpendicular to the constraint surface. Two cases (which are not subject to the solution of EL-eqs) can cause problem of making total energy not conserved:  
     1. Wrong initial velocity.
     2. Impacts.  
     
     The reason is that we are  actually not applying constraint $\phi$. Instead, we use $d\phi /dq$ and $d^2\phi /dt^2$ for solving EL-eqs.
 
-# 7. Result
-The video is here "video.mp4".
+* **No Varying Constraint**  
+    I didn't add varying constraint in this project. But I do make an analysis of how to do it below:
 
-The plot of all variables:
-![](images/plot_variables.png)
+    Consider a chair on the floor. Under my current scheme, the chair will keep on impacting with the floor and make the simulation slow and inaccurate.  
 
-The plot of Hamiltonian:
-![](images/Halmiltonian.png)
+    What I'm supposed to add: If the speed of the contact point after impact is very small, I should add a constraint to it to make this point fix on the floor. Then, do the Solve again, and keep on NDSolve. Then, if at some time the constraint force is zero or changes direction, I should remove this constraint.
