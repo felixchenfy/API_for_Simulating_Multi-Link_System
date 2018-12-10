@@ -1,6 +1,6 @@
 
-
-# ME314 Final Project
+# Report of ME314 Final Project
+# Part 2
 # Encapsulation of Functions for Simulating Multi-link System
 ## Feiyu Chen
 
