@@ -11,7 +11,7 @@ While the 1st part focuses on describing what system I simulated, this part talk
 It can be a big headache to hardcode the simulation of multi-link system in Mathematica, as it's trivial to type in all formulas and to deal with all kinds of weird bugs. The goal of this project is to reduce such pain by wrapping up an API (Application Programming Interface) so users could achieve the simulation by using simple functions. (Another goal is to make this a cool final project.)
 
 The core of the API is a set of functions called "createLink", with applications of creating links, triangle (polygon), and wall. A screenshot of my project's video demo is shown here:
-![](/images/scene.png)
+![](images/scene.png)
 <center>Figure 1. Simulation of multi-link system.</center>
 
 To view the full demo, please see "video.mp4".
@@ -39,13 +39,13 @@ I wrote 5 functions:
    * The starting coordinate's 4x4 matrix $g$.
    * Relative angle $\theta$.
    * length of this link $l$.
- 4. createLink1DOFg$\theta$l 
+ 1. createLink1DOFg$\theta$l 
    Create a 1 DOF link. The link can rotate around its starting coordinate $g$.  
    The inputs "g$\theta$l" are same as above, which are used for specifying the starting coordinate, relative angle, and length of this link.  
 
     > Application: append this link to a pendulum. For example, turning a double-pendulum into a triple-pendulum.
 
-5. createLink3DOFpp 
+4. createLink3DOFpp 
    Create a 3 DOF link that can move in $x$ and $y$ direction and rotate around its center for angle $\theta$. 
    The inputs are the initial positions of its two vertices.
    > Application: creating a free link. Append other 1 DOF links to it to form a flying multi-link.

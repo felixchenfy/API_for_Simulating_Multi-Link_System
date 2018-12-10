@@ -27,8 +27,8 @@ There are 5 groups of links in the figure:
 5. Four walls around the main objects (DOF=0)
 
 The x and y axis of each frame are denoted by straight arrows. There are 3 types of frames: 
-* <span style="color:red"> *Red frame* </span> is for 3-DOF link that has variables $x$, $y$, and $\theta$.
-* <span style="color:green"> *Green frame* </span> is for 1-DOF link, which has variable $\theta$ and can rotate around a certain pivot.
+* <span style="color:red"> *Red frame* </span> is for 3-DOF link that has variables $\mathbf{x}$, $\mathbf{y}$, and $\mathbf{theta}$.
+* <span style="color:green"> *Green frame* </span> is for 1-DOF link, which has variable $\mathbf{theta}$ and can rotate around a certain pivot.
 * <span style="color:gray"> *Gray frame* </span> is for 0-DOF link, whose two vertices are fixed in a certain frame.
 
 The transformations between different frames are denoted by curved arrows in <span style="color:blue"> blue</span>. These transformations connect up several links to form an object.
@@ -36,15 +36,15 @@ The transformations between different frames are denoted by curved arrows in <sp
 ## 3. Calculation of EL-eqs and Impacts
 
 ### 3.1 KE-V
-Suppose a link has length $l$. Then I assume its mass to be $l$ and inertia to be $l^2$. The generalized 6x6 body mass M is then obtained.
+Suppose a link has length $\mathbf{l}$. Then I assume its mass to be $\mathbf{l}$ and inertia to be $\mathbf{l^2}$. The generalized 6x6 body mass M is then obtained.
 
-For each link, I compute the 4x4 matrix representation $g$ of its center frame. Then calculate the body screw velocity $V$ using $g$ and $dg/dt$. Then the kinetic energy is $\frac{1}{2}V^T M V$.
+For each link, I compute the 4x4 matrix representation $\mathbf{g}$ of its center frame. Then calculate the body screw velocity $\mathbf{V}$ using $\mathbf{g}$ and $\mathbf{dg/dt}$. Then the kinetic energy is $\frac{1}{2}\mathbf{V^T M V}$.
 
 ### 3.2 Constraint and External Force
 
 There is no external force in my simulation. But it's easy to add -- simply put something on the right side of EL-eqs.
 
-I added one constraint to the 1-link pendulum on the right-up side of the figure. I first computed the {x,y} coords of its left vertex, and then set $y$ as 0. Then I passed it to the EL-eqs.
+I added one constraint to the 1-link pendulum on the right-up side of the figure. I first computed the {x,y} coords of its left vertex, and then set $\mathbf{y}$ as 0. Then I passed it to the EL-eqs.
 
 ### 3.3 Detecting Impacts
 In my simulation, the impact only happens between a vertex and an edge. An impact happens when: 
@@ -54,7 +54,7 @@ In my simulation, the impact only happens between a vertex and an edge. An impac
 I detect the impact by checking these two criteria.
 
 ### 3.4 Impact Update
-After detecting one or more impacts, my NDSolve breaks up. Then I do the impact updates for all the impacts one by one, get the new $dq$, and call the NDSolve again.
+After detecting one or more impacts, my NDSolve breaks up. Then I do the impact updates for all the impacts one by one, get the new $\mathbf{dq}$, and call the NDSolve again.
 
 The logic of my code looks like this:
 
@@ -85,6 +85,7 @@ In my simulation, the pentagon and 2-link pendulum are moving and sometimes impa
 ### 4.3 Hamiltonian 
 Since the energy of my system is supposed to be conserved, I plot the Hamiltonian as seen below. It does conserve over time.
 ![](images/Halmiltonian.png)
+<equation>xxx</equation>
 
 ## 5 Problems
 
