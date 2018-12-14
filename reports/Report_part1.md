@@ -13,7 +13,7 @@ My original proposal was to simulate "a two-link pendulum playing triangular pin
 
 However, as I was doing this project, I found it too troublesome to hardcode all the variables, equations, and impacts. So I wrote an API (several encapsulated functions) for creating links (see **Report_part2.pdf**), and then I simulated a multi-link system with 8 DOF, as seen in the image below.
 
-![](images/scene_annotated.png)  
+![](../images/scene_annotated.png)  
 <center>Figure 1. Simulation scene and annotations.</center>
 
 ## 2. Figure of the Scene  
@@ -85,7 +85,7 @@ In my simulation, the pentagon and 2-link pendulum are moving and sometimes impa
 
 ### 4.3 Hamiltonian   
 Since the energy of my system is supposed to be conserved, I plot the Hamiltonian as seen below. It does conserve over time.    
-![](images/Halmiltonian.png)
+![](../images/Halmiltonian.png)
 <center>Figure 2. Halmiltonian.</center>
 
 

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     27493,        694]
-NotebookOptionsPosition[     27086,        679]
-NotebookOutlinePosition[     27442,        695]
-CellTagsIndexPosition[     27399,        692]
+NotebookDataLength[     29115,        734]
+NotebookOptionsPosition[     28709,        719]
+NotebookOutlinePosition[     29064,        735]
+CellTagsIndexPosition[     29021,        732]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -78,8 +78,7 @@ Cell[BoxData[
    3.753235131310133*^9}, {3.753235457502335*^9, 3.75323549597366*^9}, 
    3.753235738110529*^9, 3.753296951174048*^9, {3.7532969980691957`*^9, 
    3.753297052791217*^9}, 3.7533056435253077`*^9},
- CellLabel->
-  "In[280]:=",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"],
+ CellLabel->"In[26]:=",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"],
 
 Cell[BoxData[
  RowBox[{
@@ -403,7 +402,7 @@ Cell[BoxData[
          RowBox[{"[", "1", "]"}], "]"}], "-", 
         RowBox[{"eqd", "[", 
          RowBox[{"[", "2", "]"}], "]"}]}]}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\n", 
    RowBox[{"(*", " ", 
     RowBox[{
      RowBox[{
@@ -412,7 +411,8 @@ Cell[BoxData[
         RowBox[{"--", " ", "Some"}]}]}], " ", "functions", " ", "for", " ", 
       "printing", " ", "useful", " ", 
       RowBox[{
-       RowBox[{"variables", " ", "--"}], "--"}]}], "-"}], "*)"}], "\n", 
+       RowBox[{"variables", " ", "--"}], "--"}]}], "-"}], "*)"}], 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"printImpactCases", ":=", 
      RowBox[{"{", "\[IndentingNewLine]", 
@@ -583,7 +583,7 @@ Cell[BoxData[
    RowBox[{"plotAnimation", ":=", 
     RowBox[{"Module", "[", 
      RowBox[{
-      RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", "qsrep", "}"}], ",", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{"links", "=", 
         RowBox[{"Table", "[", 
@@ -597,20 +597,38 @@ Cell[BoxData[
           RowBox[{"{", 
            RowBox[{"i", ",", "1", ",", "nObjects"}], "}"}]}], "]"}]}], ";", 
        "\[IndentingNewLine]", 
+       RowBox[{"points", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Point", "[", 
+           RowBox[{"impObjVertexs", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", 
+            RowBox[{"Length", "[", "impObjVertexs", "]"}]}], "}"}]}], "]"}]}],
+        ";", "\[IndentingNewLine]", 
+       RowBox[{"qsrep", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"qs", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "\[Rule]", 
+           RowBox[{"qsPlot", "[", 
+            RowBox[{"[", "i", "]"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", "nVars"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
        RowBox[{
         RowBox[{"linksCoords", "[", "j_", "]"}], ":=", 
         RowBox[{
          RowBox[{"links", "[", 
-          RowBox[{"[", "j", "]"}], "]"}], "/.", 
-         RowBox[{"Table", "[", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"qs", "[", 
-             RowBox[{"[", "i", "]"}], "]"}], "\[Rule]", 
-            RowBox[{"qsPlot", "[", 
-             RowBox[{"[", "i", "]"}], "]"}]}], ",", 
-           RowBox[{"{", 
-            RowBox[{"i", ",", "1", ",", "nVars"}], "}"}]}], "]"}]}]}], ";", 
+          RowBox[{"[", "j", "]"}], "]"}], "/.", "qsrep"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"pointsCoords", "[", "j_", "]"}], ":=", 
+        RowBox[{
+         RowBox[{"points", "[", 
+          RowBox[{"[", "j", "]"}], "]"}], "/.", "qsrep"}]}], ";", 
        "\[IndentingNewLine]", 
        RowBox[{
         RowBox[{"LinksForAnimation", "[", "tt_", "]"}], ":=", 
@@ -623,19 +641,38 @@ Cell[BoxData[
              RowBox[{"i", ",", "1", ",", 
               RowBox[{"Length", "[", "links", "]"}]}], "}"}]}], "]"}], ")"}], 
          "/.", 
+         RowBox[{"t", "\[Rule]", "tt"}]}]}], ";", 
+       RowBox[{
+        RowBox[{"pointsForAnimation", "[", "tt_", "]"}], ":=", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"pointsCoords", "[", "i", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", 
+              RowBox[{"Length", "[", "impObjVertexs", "]"}]}], "}"}]}], "]"}],
+           ")"}], "/.", 
          RowBox[{"t", "\[Rule]", "tt"}]}]}], ";", "\n", 
        RowBox[{"Animate", "[", 
         RowBox[{
          RowBox[{"Show", "[", "\[IndentingNewLine]", 
           RowBox[{
            RowBox[{"{", 
-            RowBox[{"Graphics", "[", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"Thickness", "[", 
-                RowBox[{"impactDetectionError", "/", "8"}], "]"}], ",", 
-               RowBox[{"LinksForAnimation", "[", "t", "]"}]}], "}"}], "]"}], 
-            "\[IndentingNewLine]", "}"}], ",", 
+            RowBox[{
+             RowBox[{"Graphics", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Thickness", "[", 
+                 RowBox[{"impactDetectionError", "/", "8"}], "]"}], ",", 
+                RowBox[{"LinksForAnimation", "[", "t", "]"}]}], "}"}], "]"}], 
+             ",", 
+             RowBox[{"Graphics", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
+                RowBox[{"pointsForAnimation", "[", "t", "]"}]}], "}"}], 
+              "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
            RowBox[{"PlotRange", "\[Rule]", " ", 
             RowBox[{"{", 
              RowBox[{
@@ -673,12 +710,15 @@ Cell[BoxData[
    3.7533192311846*^9, 3.7533192362031927`*^9}, {3.753319779564603*^9, 
    3.753319780892671*^9}, {3.753320141755331*^9, 3.753320154239847*^9}, {
    3.753323158729012*^9, 3.753323158995631*^9}, {3.753323385538278*^9, 
-   3.753323386971078*^9}, {3.753323517909178*^9, 3.753323523511908*^9}},
+   3.753323386971078*^9}, {3.753323517909178*^9, 3.753323523511908*^9}, 
+   3.753746629619898*^9, {3.753746747544489*^9, 3.753746792619091*^9}, {
+   3.753746898803484*^9, 3.753746952634306*^9}, 3.753747038803091*^9, {
+   3.753747121827098*^9, 3.753747191279503*^9}},
  CellLabel->
-  "In[282]:=",ExpressionUUID->"af4b6a5c-0c7b-43ac-b72b-29c2dc095927"]
+  "In[216]:=",ExpressionUUID->"af4b6a5c-0c7b-43ac-b72b-29c2dc095927"]
 },
 WindowSize->{1300, 681},
-WindowMargins->{{146, Automatic}, {62, Automatic}},
+WindowMargins->{{96, Automatic}, {96, Automatic}},
 Magnification->1.5,
 FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
@@ -694,8 +734,8 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 2862, 61, 218, "Input",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"],
-Cell[3423, 83, 23659, 594, 4434, "Input",ExpressionUUID->"af4b6a5c-0c7b-43ac-b72b-29c2dc095927"]
+Cell[558, 20, 2858, 60, 218, "Input",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"],
+Cell[3419, 82, 25286, 635, 4638, "Input",ExpressionUUID->"af4b6a5c-0c7b-43ac-b72b-29c2dc095927"]
 }
 ]
 *)
