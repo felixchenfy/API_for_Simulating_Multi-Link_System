@@ -1,0 +1,188 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js">
+<link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+<link rel="stylesheet" href="https://gitcdn.xyz/repo/goessner/mdmath/master/css/texmath.css">
+<link rel="stylesheet" href="https://gitcdn.xyz/repo/goessner/mdmath/master/css/vscode-texmath.css">
+
+</head><body class="markdown-body">
+<h1 data-line="0" class="code-line" id="api-for-simulating-multi-link-system">API for Simulating Multi-link System</h1>
+<p data-line="1" class="code-line">Final project of ME314 Machine Dynamics</p>
+<p data-line="3" class="code-line">student: Feiyu Chen</p>
+<h1 data-line="5" class="code-line" id="contents">Contents:</h1>
+<ul>
+<li data-line="6" class="code-line"><a href="#1-introduction">1. Introduction</a></li>
+<li data-line="7" class="code-line"><a href="#2-files">2. Files</a></li>
+<li data-line="8" class="code-line"><a href="#3-api-functions">3. API Functions</a></li>
+<li data-line="9" class="code-line"><a href="#4-example-of-using-my-functions">4. Example of Using My Functions</a></li>
+<li data-line="10" class="code-line"><a href="#6-how-is-this-api-being-generalized">6. How is This API being
+Generalized</a></li>
+<li data-line="12" class="code-line"><a href="#7-problems">7. Problems</a></li>
+</ul>
+<h1 data-line="15" class="code-line" id="1-introduction">1. Introduction</h1>
+<h2 data-line="17" class="code-line" id="11-why-i-made-this-api">1.1 Why I made this API</h2>
+<p data-line="18" class="code-line">It can be a big headache to hardcode the simulation of multi-link system in Mathematica, as it's trivial to type in all formulas and to deal with all kinds of weird bugs. The goal of this project is to reduce such pain by wrapping up an API (&gt; Application Programming Interface) so users/students could build up a simulation by using simple functions.</p>
+<h2 data-line="20" class="code-line" id="12-intro">1.2 Intro</h2>
+<p data-line="22" class="code-line">The core of the API is a set of functions called &quot;createLink&quot;, with Applications of creating links, triangle (polygon), vertices and wall. I made 4 scenes to demonstrate the usage of my API which are stored in &quot;./scenes/&quot;. The videos are in current folder. The images are shown here.</p>
+<p data-line="24" class="code-line"><img src="/home/feiyu/Desktop/quarter1/C2_MachineDynamics/Final3/images/scenes1to4.png" alt="" class="loading" id="image-hash-4121f47ebaa5cd0f8932e4b84aa431fdd6b64ed555cce86c740a8e53e2d954cf">
+Figure 1. Four example scenes of multi-link system.</p>
+<h2 data-line="28" class="code-line" id="13-how-to-run">1.3 How to run</h2>
+<p data-line="30" class="code-line">Open this <a href="vscode-resource:/home/feiyu/Desktop/quarter1/C2_MachineDynamics/Final3/run_this.nb">run_this.nb</a>. Choose a scene in the sceond cell (you can search the keyword &quot;Choose a scene&quot;). And then run through the whole script.</p>
+<h1 data-line="33" class="code-line" id="2-files">2. Files</h1>
+<h2 data-line="34" class="code-line" id="21-runthisnb">2.1 run_this.nb</h2>
+<p data-line="35" class="code-line">This is the main file.</p>
+<h2 data-line="37" class="code-line" id="22-scenes">2.2 scenes/</h2>
+<p data-line="38" class="code-line">The scenes are stored in &quot;./scenes/&quot;. Inside each scene script, there is a only function called &quot;CreateObjects[]&quot;. It describes the links that form the simulation. You may change and create your own</p>
+<h2 data-line="40" class="code-line" id="23-lib">2.3 lib/</h2>
+<p data-line="41" class="code-line">This stores 3 library files: <a href="vscode-resource:/home/feiyu/Desktop/quarter1/C2_MachineDynamics/Final3/funcs_assist.nb">funcs_assist.nb</a>, <a href="vscode-resource:/home/feiyu/Desktop/quarter1/C2_MachineDynamics/Final3/funcs_main.nb">funcs_main.nb</a>, and <a href="vscode-resource:/home/feiyu/Desktop/quarter1/C2_MachineDynamics/Final3/funcs_math.nb">funcs_math.nb</a>. They provide the necessary functions and parameters for the main script. They will be loaded when running the &quot;run_this.nb&quot;.</p>
+<h1 data-line="43" class="code-line" id="3-api-functions">3. API Functions</h1>
+<p data-line="44" class="code-line">I wrote 5 functions:</p>
+<h3 data-line="46" class="code-line" id="31-createvertex">3.1 createVertex</h3>
+<p data-line="48" class="code-line">Create a vertex.</p>
+<blockquote data-line="50" class="code-line">
+<p data-line="50" class="code-line">Application: create a point obstacle, or append a link to it to make a pendulum.</p>
+</blockquote>
+<h3 data-line="52" class="code-line" id="32-createlink0dofpp">3.2 createLink0DOFpp</h3>
+<p data-line="54" class="code-line">Create a link with 0 degrees of freedom (DOF). The &quot;pp&quot; at the end indicates that the inputs are two points  &quot;point1&quot; and &quot;point2&quot; with format of 2-vector.</p>
+<blockquote data-line="56" class="code-line">
+<p data-line="56" class="code-line">Application: create a wall, or append it to another link to form a rigid body. See an example in Example 1 of creating polygon.</p>
+</blockquote>
+<h3 data-line="58" class="code-line" id="33-createlink0dofgmathbfthetal">3.3 createLink0DOFg<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\mathbf{\theta}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span></span>l</h3>
+<p data-line="60" class="code-line">This is same as above for creating a 0 DOF link, except that the inputs are:<br>
+* The starting coordinate's 4x4 matrix <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">g</mi></mrow><annotation encoding="application/x-tex">\mathbf{g}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63888em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">g</span></span></span></span></span>.<br>
+* Relative angle <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span>.<br>
+* Length of this link <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">l</mi></mrow><annotation encoding="application/x-tex">\mathbf{l}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">l</span></span></span></span></span>.</p>
+<h3 data-line="65" class="code-line" id="34-createlink1dofgmathbfthetal">3.4 createLink1DOFg<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\mathbf{\theta}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span></span>l</h3>
+<p data-line="67" class="code-line">Create a 1 DOF link. The link can rotate around its starting coordinate <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">g</mi></mrow><annotation encoding="application/x-tex">\mathbf{g}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63888em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">g</span></span></span></span></span>.</p>
+<p data-line="69" class="code-line">The inputs &quot;g<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\mathbf{\theta}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span></span>l&quot; are the same as above, which are used for specifying the starting coordinate, relative angle, and length of this link.</p>
+<blockquote data-line="71" class="code-line">
+<p data-line="71" class="code-line">Application: append this link to a pendulum. For example, turning a double-pendulum into a triple-pendulum.</p>
+</blockquote>
+<h3 data-line="73" class="code-line" id="35-createlink3dofpp">3.5 createLink3DOFpp</h3>
+<p data-line="75" class="code-line">Create a 3 DOF link that can move in <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">x</mi></mrow><annotation encoding="application/x-tex">\mathbf{x}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.44444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">x</span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">y</mi></mrow><annotation encoding="application/x-tex">\mathbf{y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63888em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">y</span></span></span></span></span> direction and rotate around its center for angle <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathit" style="margin-right:0.02778em;">θ</span></span></span></span>.<br>
+Its inputs are the initial positions of its two vertices.</p>
+<blockquote data-line="78" class="code-line">
+<p data-line="78" class="code-line">Application: creating a free link. Append other 1 DOF links to it to form a flying multi-link.</p>
+</blockquote>
+<h1 data-line="80" class="code-line" id="4-example-of-using-my-functions">4. Example of Using My Functions</h1>
+<p data-line="82" class="code-line">I will take the scene1 as example and show how to use my API.</p>
+<p data-line="84" class="code-line">Below is a figure of scene1 with annotations of its frames and transformations.</p>
+<p data-line="86" class="code-line"><img src="vscode-resource:/home/feiyu/Desktop/quarter1/C2_MachineDynamics/Final3/images/scene1_frames.png" alt="" class="loading" id="image-hash-46f02035f6e229ea4543f5dcfb322c74d0cdc3ba7f940cb837b75e9196c5fa82"></p>
+<p data-line="88" class="code-line">Figure 2. Scene1 with annoations of frames and transformations</p>
+<p data-line="91" class="code-line">The x and y axis of each frame are denoted by straight arrows. There are 3 types of frames/links:</p>
+<ul>
+<li data-line="92" class="code-line"><span style="color:red"> <em>Red frame</em> </span> is for 3-DOF link that has variables <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">x</mi></mrow><annotation encoding="application/x-tex">\mathbf{x}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.44444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">x</span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">y</mi></mrow><annotation encoding="application/x-tex">\mathbf{y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63888em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">y</span></span></span></span></span>, and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">t</mi><mi mathvariant="bold">h</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">t</mi><mi mathvariant="bold">a</mi></mrow><annotation encoding="application/x-tex">\mathbf{theta}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">t</span><span class="mord mathbf">h</span><span class="mord mathbf">e</span><span class="mord mathbf">t</span><span class="mord mathbf">a</span></span></span></span></span>.</li>
+<li data-line="93" class="code-line"><span style="color:green"> <em>Green frame</em> </span> is for 1-DOF link, which has variable <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">t</mi><mi mathvariant="bold">h</mi><mi mathvariant="bold">e</mi><mi mathvariant="bold">t</mi><mi mathvariant="bold">a</mi></mrow><annotation encoding="application/x-tex">\mathbf{theta}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">t</span><span class="mord mathbf">h</span><span class="mord mathbf">e</span><span class="mord mathbf">t</span><span class="mord mathbf">a</span></span></span></span></span> and can rotate around a certain pivot.</li>
+<li data-line="94" class="code-line"><span style="color:gray"> <em>Gray frame</em> </span> is for 0-DOF link, whose two vertices are fixed in a certain frame.</li>
+</ul>
+<p data-line="96" class="code-line">The transformations between different frames are denoted by curved arrows in <span style="color:cyan"> <strong>cyan</strong></span>. These transformations connect up several links to form an object.</p>
+<p data-line="98" class="code-line">There are 5 groups of links in the figure:</p>
+<ol>
+<li data-line="99" class="code-line">A pentagon (DOF=3)</li>
+<li data-line="100" class="code-line">A 2-link pendulum (DOF=2)</li>
+<li data-line="101" class="code-line">A 1-link pendulum (DOF=3, height of the left vertex is fixed)</li>
+<li data-line="102" class="code-line">A 1-link wall (DOF=0)</li>
+<li data-line="103" class="code-line">Four walls around the main objects (DOF=0)</li>
+</ol>
+<p data-line="105" class="code-line">The pseudo code for creating these 5 groups of links are as follows:</p>
+<ul>
+<li data-line="107" class="code-line">
+<p data-line="107" class="code-line">1 . Pentagon (3 DOF)</p>
+<blockquote data-line="108" class="code-line">
+<p data-line="108" class="code-line">createLink3DOF<br>
+createLink0DOF<br>
+createLink0DOF<br>
+createLink0DOF<br>
+createLink0DOF</p>
+</blockquote>
+</li>
+<li data-line="114" class="code-line">
+<p data-line="114" class="code-line">2 . Two-link pendulum (2 DOF)</p>
+<blockquote data-line="115" class="code-line">
+<p data-line="115" class="code-line">createVertex<br>
+createLink1DOF<br>
+createLink1DOF</p>
+</blockquote>
+</li>
+<li data-line="119" class="code-line">
+<p data-line="119" class="code-line">3 . One-link with constrained height (3 DOF + 1 Constraint)</p>
+<blockquote data-line="120" class="code-line">
+<p data-line="120" class="code-line">createLink3DOF<br>
+addConstraint[y==0]</p>
+</blockquote>
+</li>
+<li data-line="123" class="code-line">
+<p data-line="123" class="code-line">4/5 . Walls (0 DOF)</p>
+<blockquote data-line="124" class="code-line">
+<p data-line="124" class="code-line">createLink0DOF<br>
+createLink0DOF</p>
+</blockquote>
+</li>
+</ul>
+<p data-line="127" class="code-line">After creating these links, you can simply run the main file and see the animation.</p>
+<h2 data-line="129" class="code-line" id="5-calculation-of-el-eqs-and-impacts">5. Calculation of EL-eqs and Impacts</h2>
+<h3 data-line="131" class="code-line" id="51-kinetic-and-potential-energy">5.1 Kinetic and Potential Energy</h3>
+<p data-line="132" class="code-line">Suppose a link has length <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">l</mi></mrow><annotation encoding="application/x-tex">\mathbf{l}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">l</span></span></span></span></span>. Then I assume its mass to be <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">l</mi></mrow><annotation encoding="application/x-tex">\mathbf{l}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf">l</span></span></span></span></span> and inertia to be <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi mathvariant="bold">l</mi><mn mathvariant="bold">2</mn></msup></mrow><annotation encoding="application/x-tex">\mathbf{l^2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">l</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>. The generalized 6x6 body mass M is then obtained.</p>
+<p data-line="134" class="code-line">For each link, I compute the 4x4 matrix representation <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">g</mi></mrow><annotation encoding="application/x-tex">\mathbf{g}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63888em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">g</span></span></span></span></span> of its center frame. Then calculate the body screw velocity <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">V</mi></mrow><annotation encoding="application/x-tex">\mathbf{V}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68611em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">V</span></span></span></span></span> using <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">g</mi></mrow><annotation encoding="application/x-tex">\mathbf{g}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63888em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">g</span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">d</mi><mi mathvariant="bold">g</mi><mi mathvariant="bold">/</mi><mi mathvariant="bold">d</mi><mi mathvariant="bold">t</mi></mrow><annotation encoding="application/x-tex">\mathbf{dg/dt}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbf">d</span><span class="mord mathbf" style="margin-right:0.01597em;">g</span><span class="mord mathbf">/</span><span class="mord mathbf">d</span><span class="mord mathbf">t</span></span></span></span></span>. Then the kinetic energy is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><msup><mi mathvariant="bold">V</mi><mi mathvariant="bold">T</mi></msup><mi mathvariant="bold">M</mi><mi mathvariant="bold">V</mi></mrow></mrow><annotation encoding="application/x-tex">\frac{1}{2}\mathbf{V^T M V}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">V</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8432769999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">T</span></span></span></span></span></span></span></span><span class="mord mathbf">M</span><span class="mord mathbf" style="margin-right:0.01597em;">V</span></span></span></span></span>.</p>
+<h3 data-line="136" class="code-line" id="52-constraint-and-external-force">5.2 Constraint and External Force</h3>
+<p data-line="138" class="code-line">These two elements can be easily added up to the EL-eqs.</p>
+<p data-line="140" class="code-line">In scene1.nb, I add a constraint to the link at right up corner. I fixed its height by the code below, where &quot;IdxPBack&quot; refers to the &quot;Point at Back side&quot;, and &quot;[[2]]&quot; refers to &quot;y&quot; (&quot;[[1]]&quot; refers to &quot;x&quot;). One internal problem of constraint is that its only added to the velocity, not displacement. See the Section &quot;Problems&quot; for more details.</p>
+<blockquote data-line="141" class="code-line">
+<p data-line="141" class="code-line">addConstraint[linki[[IdxPBack]][[2]] == 0];</p>
+</blockquote>
+<p data-line="143" class="code-line">The external forces are set in this sentence:</p>
+<blockquote data-line="144" class="code-line">
+<p data-line="144" class="code-line">externalForces = ConstantArray[0, nVars];</p>
+</blockquote>
+<h3 data-line="146" class="code-line" id="53-detecting-impacts">5.3 Detecting Impacts</h3>
+<p data-line="148" class="code-line">The impact happens when <strong>one link's vertex</strong> goes through <strong>another link's edge</strong>. The two links should also from different groups.</p>
+<p data-line="150" class="code-line">The impact conditions are defined in the function <strong>&quot;SetUpImpactEvents&quot;</strong> in <strong>&quot;lib/funcs_main.nb&quot;</strong>.</p>
+<p data-line="152" class="code-line">For determining whether a vertex is inside the edge, I wrote two different methods/functions. In the current version, the second function is adopted:</p>
+<ol>
+<li data-line="154" class="code-line">checkInObstacle1: checks the distance between vertex and edge. If the distance is small, then vertex is in edge.</li>
+<li data-line="155" class="code-line">checkInObstacle2: checks the sign of distance between vertex and edge. A change of sign means the vertex goes through the edge.</li>
+</ol>
+<p data-line="157" class="code-line">(Meanwhile, whether the projection of vertex is on edge is also considered.)</p>
+<h3 data-line="159" class="code-line" id="54-impact-update">5.4 Impact Update</h3>
+<p data-line="161" class="code-line">The logic of my code for impact detection  looks like this:</p>
+<pre><code data-line="163" class="code-line"><code><div>Loop{
+   While(no impact &amp;&amp; t!=t_end{
+       NDSolve
+   }
+   if(impacts){
+       impact update for each impact
+   }else{
+       break
+   }
+}
+</div></code></code></pre>
+<h1 data-line="177" class="code-line" id="6-how-is-this-api-being-generalized">6. How is This API being Generalized</h1>
+<ul>
+<li data-line="179" class="code-line">
+<p data-line="179" class="code-line">How to deal with the varying total DOF<br>
+I push variables into a list, and use vector/matrix operation to compute all equations. It requires some understanding of all the formulas.</p>
+</li>
+<li data-line="182" class="code-line">
+<p data-line="182" class="code-line">How to detect impact<br>
+Every time adding a new link, I push its <strong>edge</strong> into a list, and push its 2 <strong>vertices</strong> into another list. When detecting impacts, I go through these two lists, and check if a <strong>vertex</strong> is near an <strong>edge</strong>. (The vertex and edge that have a same group ID will be ignored.)</p>
+</li>
+</ul>
+<h1 data-line="187" class="code-line" id="7-problems">7. Problems</h1>
+<h3 data-line="188" class="code-line" id="not-detecting-some-impacts"><strong>Not Detecting Some Impacts</strong></h3>
+<p data-line="189" class="code-line">At some occasions, the vertex might go through the edge. The cause is that the object's velocity is too large, or the integration step length is too large. Currently, I didn't implement any advanced techinques to go back and forth to check the exact impact time.</p>
+<p data-line="191" class="code-line">So you might need to reduce the integration step length, or make your scene smaller (thus less potential energy and a smaller max speed).</p>
+<h3 data-line="193" class="code-line" id="slow-computing"><strong>Slow Computing</strong></h3>
+<p data-line="194" class="code-line">When the total DOF&lt;10, links&lt;15, step_size=0.001, simulation_time=15s, it takes about 3 minutes to compute all motions. Thus, the DOF and links cannot be too many, or it will cost too much time to compute impacts and do NDSolve.</p>
+<h3 data-line="196" class="code-line" id="be-cautions-with-constraint"><strong>Be Cautions with Constraint</strong></h3>
+<p data-line="197" class="code-line">When applying constraint to a configuration variable, we must make sure that this variable won't move perpendicular to the constraint surface. Two cases (which are not subject to the solution of EL-eqs) can cause problem of making total energy not conserved:</p>
+<ol>
+<li data-line="199" class="code-line">Wrong initial velocity.</li>
+<li data-line="200" class="code-line">Impacts.</li>
+</ol>
+<p data-line="202" class="code-line">The reason is that we are  actually not applying constraint <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ϕ</mi></mrow><annotation encoding="application/x-tex">\mathbf{\phi}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathit">ϕ</span></span></span></span></span>. Instead, we use <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">d</mi><mi>ϕ</mi><mi mathvariant="bold">/</mi><mi mathvariant="bold">d</mi><mi mathvariant="bold">q</mi></mrow><annotation encoding="application/x-tex">\mathbf{d\phi /dq}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbf">d</span><span class="mord mathit">ϕ</span><span class="mord mathbf">/</span><span class="mord mathbf">d</span><span class="mord mathbf">q</span></span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi mathvariant="bold">d</mi><mn mathvariant="bold">2</mn></msup><mi>ϕ</mi><mi mathvariant="bold">/</mi><mi mathvariant="bold">d</mi><msup><mi mathvariant="bold">t</mi><mn mathvariant="bold">2</mn></msup></mrow><annotation encoding="application/x-tex">\mathbf{d^2\phi /dt^2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">2</span></span></span></span></span></span></span></span><span class="mord mathit">ϕ</span><span class="mord mathbf">/</span><span class="mord mathbf">d</span><span class="mord"><span class="mord mathbf">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathbf mtight">2</span></span></span></span></span></span></span></span></span></span></span></span> for solving EL-eqs.</p>
+<h3 data-line="204" class="code-line" id="no-varying-constraint"><strong>No Varying Constraint</strong></h3>
+<p data-line="205" class="code-line">I didn't add varying constraint in this project. But I do make an analysis of how to do it below:</p>
+<p data-line="207" class="code-line">Consider a chair on the floor. Under my current scheme, the chair will keep on impacting with the floor and make the simulation slow and inaccurate.</p>
+<p data-line="209" class="code-line">What I'm supposed to add: If the speed of the contact point after impact is very small, I should add a constraint to it to make this point fix on the floor. Then, do the Solve again, and keep on NDSolve. Then, if at some time the constraint force is zero or changes direction, I should remove this constraint.</p>
+
+</body></html>
