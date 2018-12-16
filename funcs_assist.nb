@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     29115,        734]
-NotebookOptionsPosition[     28709,        719]
-NotebookOutlinePosition[     29064,        735]
-CellTagsIndexPosition[     29021,        732]
+NotebookDataLength[     29123,        731]
+NotebookOptionsPosition[     28718,        716]
+NotebookOutlinePosition[     29072,        732]
+CellTagsIndexPosition[     29029,        729]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -78,7 +78,7 @@ Cell[BoxData[
    3.753235131310133*^9}, {3.753235457502335*^9, 3.75323549597366*^9}, 
    3.753235738110529*^9, 3.753296951174048*^9, {3.7532969980691957`*^9, 
    3.753297052791217*^9}, 3.7533056435253077`*^9},
- CellLabel->"In[26]:=",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"],
+ CellLabel->"In[72]:=",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"],
 
 Cell[BoxData[
  RowBox[{
@@ -402,7 +402,7 @@ Cell[BoxData[
          RowBox[{"[", "1", "]"}], "]"}], "-", 
         RowBox[{"eqd", "[", 
          RowBox[{"[", "2", "]"}], "]"}]}]}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\n", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{
      RowBox[{
@@ -411,8 +411,7 @@ Cell[BoxData[
         RowBox[{"--", " ", "Some"}]}]}], " ", "functions", " ", "for", " ", 
       "printing", " ", "useful", " ", 
       RowBox[{
-       RowBox[{"variables", " ", "--"}], "--"}]}], "-"}], "*)"}], 
-   "\[IndentingNewLine]", 
+       RowBox[{"variables", " ", "--"}], "--"}]}], "-"}], "*)"}], "\n", 
    RowBox[{
     RowBox[{"printImpactCases", ":=", 
      RowBox[{"{", "\[IndentingNewLine]", 
@@ -580,7 +579,11 @@ Cell[BoxData[
    RowBox[{"(*", " ", 
     RowBox[{"Final", " ", "animate", " ", "after", " ", "NDSolve"}], " ", 
     "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"plotAnimation", ":=", 
+   RowBox[{
+    RowBox[{"Clear", "[", "plotAnimation", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"plotAnimation", "[", "xyrange_", "]"}], ":=", 
     RowBox[{"Module", "[", 
      RowBox[{
       RowBox[{"{", "qsrep", "}"}], ",", "\[IndentingNewLine]", 
@@ -673,15 +676,7 @@ Cell[BoxData[
                 RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
                 RowBox[{"pointsForAnimation", "[", "t", "]"}]}], "}"}], 
               "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
-           RowBox[{"PlotRange", "\[Rule]", " ", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"-", "3"}], ",", "3"}], "}"}]}], "}"}]}], ",", 
+           RowBox[{"PlotRange", "\[Rule]", " ", "xyrange"}], ",", 
            RowBox[{"Frame", "\[Rule]", " ", "True"}]}], "]"}], ",", 
          RowBox[{"{", 
           RowBox[{"t", ",", "0", ",", "timeend"}], "}"}], ",", 
@@ -713,12 +708,14 @@ Cell[BoxData[
    3.753323386971078*^9}, {3.753323517909178*^9, 3.753323523511908*^9}, 
    3.753746629619898*^9, {3.753746747544489*^9, 3.753746792619091*^9}, {
    3.753746898803484*^9, 3.753746952634306*^9}, 3.753747038803091*^9, {
-   3.753747121827098*^9, 3.753747191279503*^9}},
+   3.753747121827098*^9, 3.753747191279503*^9}, {3.753749026648386*^9, 
+   3.7537490440175056`*^9}, {3.75374917422163*^9, 3.753749191406537*^9}, {
+   3.753749231905574*^9, 3.75374923280552*^9}},
  CellLabel->
-  "In[216]:=",ExpressionUUID->"af4b6a5c-0c7b-43ac-b72b-29c2dc095927"]
+  "In[209]:=",ExpressionUUID->"af4b6a5c-0c7b-43ac-b72b-29c2dc095927"]
 },
 WindowSize->{1300, 681},
-WindowMargins->{{96, Automatic}, {96, Automatic}},
+WindowMargins->{{0, Automatic}, {45, Automatic}},
 Magnification->1.5,
 FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
@@ -735,7 +732,7 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 2858, 60, 218, "Input",ExpressionUUID->"09eae57e-490c-41ed-abcd-b582021719d9"],
-Cell[3419, 82, 25286, 635, 4638, "Input",ExpressionUUID->"af4b6a5c-0c7b-43ac-b72b-29c2dc095927"]
+Cell[3419, 82, 25295, 632, 4672, "Input",ExpressionUUID->"af4b6a5c-0c7b-43ac-b72b-29c2dc095927"]
 }
 ]
 *)
