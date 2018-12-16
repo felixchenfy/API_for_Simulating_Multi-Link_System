@@ -1,0 +1,200 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7162,        192]
+NotebookOptionsPosition[      6870,        179]
+NotebookOutlinePosition[      7207,        194]
+CellTagsIndexPosition[      7164,        191]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Put", " ", "your", " ", "code", " ", "here", " ", "to", " ", "create", 
+    " ", "links", " ", "system"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"CreateObjects", ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+       RowBox[{"Object", " ", "1"}], ":", " ", "Triangle"}], " ", "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"nthGroup", "=", "1"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"initRandVelocity", "=", "0"}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"p0", "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "0.2"}], ",", "0"}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"p1", "=", 
+       RowBox[{"{", 
+        RowBox[{"0.1", ",", "0.1"}], "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"l", "=", 
+       RowBox[{"CalcDistpp", "[", 
+        RowBox[{"p0", ",", "p1"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"NumOfEdges", "=", "3"}], ";", 
+      RowBox[{"(*", " ", 
+       RowBox[{"create", " ", "a", " ", "triangle"}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"linki", "=", 
+       RowBox[{"createLink3DOFpp", "[", 
+        RowBox[{"p0", ",", "p1"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", "1"}], ",", 
+        RowBox[{"i", "\[LessEqual]", 
+         RowBox[{"NumOfEdges", "-", "1"}]}], ",", 
+        RowBox[{"i", "=", 
+         RowBox[{"i", "+", "1"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"linki", "=", 
+         RowBox[{"createLink0DOFg\[Theta]l", "[", 
+          RowBox[{
+           RowBox[{"linki", "[", 
+            RowBox[{"[", "IdxTFront", "]"}], "]"}], ",", 
+           RowBox[{"2", "*", 
+            RowBox[{"Pi", "/", "NumOfEdges"}]}], ",", "l"}], "]"}]}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{"Objects", " ", "2"}], ":", " ", 
+        RowBox[{"Walls", " ", "of", " ", "Vertices"}]}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"nthGroup", "=", "2"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Nrows", "=", "3"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"NColumns", "=", "7"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Gap", "=", "0.6"}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", "1"}], ",", 
+        RowBox[{"i", "<=", "Nrows"}], ",", 
+        RowBox[{"i", "=", 
+         RowBox[{"i", "+", "1"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"j", "=", "1"}], ",", 
+           RowBox[{"j", "\[LessEqual]", "NColumns"}], ",", 
+           RowBox[{"j", "=", 
+            RowBox[{"j", "+", "1"}]}], ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"x", "=", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", 
+                 RowBox[{"(", 
+                  RowBox[{"NColumns", "-", "1"}], ")"}]}], "/", "2"}], "*", 
+               "Gap"}], "+", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"j", "-", "1"}], ")"}], "*", "Gap"}]}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Mod", "[", 
+                RowBox[{"i", ",", "2"}], "]"}], "\[Equal]", "0"}], ",", 
+              RowBox[{"x", "=", 
+               RowBox[{"x", "+", 
+                RowBox[{"Gap", "/", "2"}]}]}]}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"y", "=", 
+             RowBox[{
+              RowBox[{"-", "i"}], "*", "Gap"}]}], ";", "\[IndentingNewLine]", 
+            
+            RowBox[{"createVertex", "[", 
+             RowBox[{"Trans4", "[", 
+              RowBox[{"x", ",", "y"}], "]"}], "]"}], ";"}]}], 
+          "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}],
+       ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{"Objects", " ", "3"}], ":", " ", 
+        RowBox[{"Wall", " ", "of", " ", "Floor"}]}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"wallxleft", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "NColumns"}], "/", "2"}], "*", "Gap"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"wallxright", "=", 
+       RowBox[{
+        RowBox[{"NColumns", "/", "2"}], "*", "Gap"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"wally", "=", 
+       RowBox[{
+        RowBox[{"-", "i"}], "*", "Gap"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"wally2", "=", "0.2"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"createLink0DOFpp", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"wallxleft", ",", "wally"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"wallxright", ",", "wally"}], "}"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"createLink0DOFpp", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"wallxleft", ",", "wally"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"wallxleft", ",", "wally2"}], "}"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"createLink0DOFpp", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"wallxright", ",", "wally"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"wallxright", ",", "wally2"}], "}"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{"no", " ", "external", " ", "forces"}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"externalForces", "=", 
+       RowBox[{"ConstantArray", "[", 
+        RowBox[{"0", ",", "nVars"}], "]"}]}], ";"}]}], "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.753985336538397*^9, {3.753987660640696*^9, 3.753987661101653*^9}, {
+   3.7539917377318*^9, 
+   3.7539917386737843`*^9}},ExpressionUUID->"fdc074e8-a1e5-4645-9163-\
+990b5a56839c"]
+},
+WindowSize->{1440, 711},
+WindowMargins->{{Automatic, 125}, {-63, Automatic}},
+FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 6308, 157, 1067, "Input",ExpressionUUID->"fdc074e8-a1e5-4645-9163-990b5a56839c"]
+}
+]
+*)
+
