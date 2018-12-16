@@ -22,7 +22,8 @@ It can be a big headache to hardcode the simulation of multi-link system in Math
 
 The core of the API is a set of functions called "createLink", with Applications of creating links, triangle (polygon), vertices and wall. I made 4 scenes to demonstrate the usage of my API which are stored in "./scenes/". The videos are in current folder. The images are shown here.
 
-![](./images/scenes1to4.png)
+![](./images/scenes1to4.png)  
+
 Figure 1. Four example scenes of multi-link system.
 
 
