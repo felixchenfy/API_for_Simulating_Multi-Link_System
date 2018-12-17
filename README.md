@@ -3,6 +3,12 @@ Final project of ME314 Machine Dynamics
 
 student: Feiyu Chen
 
+video domos:
+[scene1](http://feiyuchen.com/wp-content/uploads/scene1_10s_slowed.mp4), 
+[scene2](http://feiyuchen.com/wp-content/uploads/scene2_10s_slowed.mp4), 
+[scene3](http://feiyuchen.com/wp-content/uploads/scene3_15s_slowed.mp4), 
+[scene4](http://feiyuchen.com/wp-content/uploads/scene4_10s.mp4)
+
 # Contents:
 -   [1. Introduction](#1.-Introduction)
 -   [2. Files](#2.-Files)
