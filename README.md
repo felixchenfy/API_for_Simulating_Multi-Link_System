@@ -14,6 +14,7 @@ video domos:
 -   [2. Files](#2.-Files)
 -   [3. API Functions](#3.-API-Functions)
 -   [4. Example of Using My Functions](#4.-Example-of-Using-My-Functions)
+-   [5. Calculation of EL-eqs and Impacts](#5.-Calculation-of-EL-eqs-and-Impacts)
 -   [6. How is This API being
     Generalized](#6.-How-is-This-Api-Being-Generalized)
 -   [7. Problems](#7.-Problems)
