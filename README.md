@@ -36,15 +36,15 @@ Figure 1. Four example scenes of multi-link system.
 
 ## 1.3 How to run
 
-Open this [run_this.nb](run_this.nb). Choose a scene in the sceond cell (you can search the keyword "Choose a scene"). And then run through the whole script.
-
+Open this [run_this.nb](run_this.nb). Modify code and choose a scene in the second cell (you can search the keyword "Choose a scene"). And then run through the whole script.  
+The scenes .nb files are in "./scenes/".
 
 # 2. Files
 ## 2.1 run_this.nb
 This is the main file.
 
 ## 2.2 scenes/  
-The scenes are stored in "./scenes/". Inside each scene script, there is a only function called "CreateObjects[]". It describes the links that form the simulation. You may change and create your own
+The scenes are stored in "./scenes/". Inside each scene script, there is a only function called "CreateObjects[]". Inside it, the codes describe the links that form the simulation. You may change it and create your own.
 
 ## 2.3 lib/
 This stores 3 library files: [funcs_assist.nb](funcs_assist.nb), [funcs_main.nb](funcs_main.nb), and [funcs_math.nb](funcs_math.nb). They provide the necessary functions and parameters for the main script. They will be loaded when running the "run_this.nb".
