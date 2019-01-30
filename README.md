@@ -9,14 +9,15 @@ video domos:
 [scene3](http://feiyuchen.com/wp-content/uploads/scene3_15s_slowed.mp4), 
 [scene4](http://feiyuchen.com/wp-content/uploads/scene4_10s.mp4)
 
+pdf version of README: [pdf](README.pdf) (Due to some math eqs are not shown well on github.)
+
 # Contents:
 -   [1. Introduction](#1.-Introduction)
 -   [2. Files](#2.-Files)
 -   [3. API Functions](#3.-API-Functions)
 -   [4. Example of Using My Functions](#4.-Example-of-Using-My-Functions)
 -   [5. Calculation of EL-eqs and Impacts](#5.-Calculation-of-EL-eqs-and-Impacts)
--   [6. How is This API being
-    Generalized](#6.-How-is-This-Api-Being-Generalized)
+-   [6. How is This API being Generalized](#6.-How-is-This-Api-Being-Generalized)
 -   [7. Problems](#7.-Problems)
 
 
