@@ -1,4 +1,5 @@
-# API for Simulating Multi-link System
+API for Simulating Multi-link System
+====================================
 Final project of ME314 Machine Dynamics
 
 student: Feiyu Chen
@@ -11,22 +12,30 @@ video domos:
 
 pdf version of README: [pdf](README.pdf) (Due to some math eqs are not shown well on github.)
 
-# Contents:
--   [1. Introduction](#1.-Introduction)
--   [2. Files](#2.-Files)
--   [3. API Functions](#3.-API-Functions)
--   [4. Example of Using My Functions](#4.-Example-of-Using-My-Functions)
--   [5. Calculation of EL-eqs and Impacts](#5.-Calculation-of-EL-eqs-and-Impacts)
--   [6. How is This API being Generalized](#6.-How-is-This-Api-Being-Generalized)
--   [7. Problems](#7.-Problems)
+**Contents:**
+- [API for Simulating Multi-link System](#api-for-simulating-multi-link-system)
+- [1. Introduction](#1-introduction)
+  - [1.1. Why I made this API](#11-why-i-made-this-api)
+  - [1.2. Intro](#12-intro)
+  - [1.3. How to run](#13-how-to-run)
+- [2. Files](#2-files)
+- [3. API Functions](#3-api-functions)
+- [4. Example of Using My Functions](#4-example-of-using-my-functions)
+- [5. Calculation of EL-eqs and Impacts](#5-calculation-of-el-eqs-and-impacts)
+  - [5.1. Kinetic and Potential Energy](#51-kinetic-and-potential-energy)
+  - [5.2. Constraint and External Force](#52-constraint-and-external-force)
+  - [5.3. Detecting Impacts](#53-detecting-impacts)
+  - [5.4. Impact Update](#54-impact-update)
+- [6. How is This API being Generalized](#6-how-is-this-api-being-generalized)
+- [7. Problems](#7-problems)
 
 
 # 1. Introduction
 
-## 1.1 Why I made this API
+## 1.1. Why I made this API
 It can be a big headache to hardcode the simulation of multi-link system in Mathematica, as it's nontrivial to type in all formulas and to deal with all kinds of weird bugs. The goal of this project is to reduce such pain by wrapping up an API (> Application Programming Interface) so users/students could build up a simulation by using simple functions.
 
-## 1.2 Intro
+## 1.2. Intro
 
 The core of the API is a set of functions called "createLink", with Applications of creating links, triangle (polygon), vertices and wall. I made 4 scenes to demonstrate the usage of my API which are stored in "./scenes/". The videos are in current folder. The images are shown here.
 
@@ -35,44 +44,44 @@ The core of the API is a set of functions called "createLink", with Applications
 Figure 1. Four example scenes of multi-link system.
 
 
-## 1.3 How to run
+## 1.3. How to run
 
 Open this [run_this.nb](run_this.nb). Modify code and choose a scene in the second cell (you can search the keyword "Choose a scene"). And then run through the whole script.  
 The scenes .nb files are in "./scenes/".
 
 # 2. Files
-## 2.1 run_this.nb
+* 2.1. run_this.nb  
 This is the main file.
 
-## 2.2 scenes/  
+* 2.2. scenes/    
 The scenes are stored in "./scenes/". Inside each scene script, there is a only function called "CreateObjects[]". Inside it, the codes describe the links that form the simulation. You may change it and create your own.
 
-## 2.3 lib/
+* 2.3. lib/  
 This stores 3 library files: [funcs_assist.nb](funcs_assist.nb), [funcs_main.nb](funcs_main.nb), and [funcs_math.nb](funcs_math.nb). They provide the necessary functions and parameters for the main script. They will be loaded when running the "run_this.nb".
 
 # 3. API Functions
 I wrote 5 functions:
 
-### 3.1 createVertex  
+* createVertex  
 
   Create a vertex.   
 
   > Application: create a point obstacle, or append a link to it to make a pendulum.
 
-### 3.2 createLink0DOFpp  
+* createLink0DOFpp  
 
   Create a link with 0 degrees of freedom (DOF). The "pp" at the end indicates that the inputs are two points  "point1" and "point2" with format of 2-vector.  
 
   > Application: create a wall, or append it to another link to form a rigid body. See an example in Example 1 of creating polygon.
 
-### 3.3 createLink0DOFg$\mathbf{\theta}$l  
+* createLink0DOFg$\mathbf{\theta}$l  
   
   This is same as above for creating a 0 DOF link, except that the inputs are:  
       * The starting coordinate's 4x4 matrix $\mathbf{g}$.   
       * Relative angle $\theta$.   
       * Length of this link $\mathbf{l}$.   
 
-### 3.4 createLink1DOFg$\mathbf{\theta}$l  
+* createLink1DOFg$\mathbf{\theta}$l  
     
   Create a 1 DOF link. The link can rotate around its starting coordinate $\mathbf{g}$.  
 
@@ -80,7 +89,7 @@ I wrote 5 functions:
 
   > Application: append this link to a pendulum. For example, turning a double-pendulum into a triple-pendulum.
 
-### 3.5 createLink3DOFpp   
+* createLink3DOFpp   
    
    Create a 3 DOF link that can move in $\mathbf{x}$ and $\mathbf{y}$ direction and rotate around its center for angle $\theta$.  
    Its inputs are the initial positions of its two vertices.
@@ -136,14 +145,14 @@ createLink0DOF
 
 After creating these links, you can simply run the main file and see the animation.
 
-## 5. Calculation of EL-eqs and Impacts
+# 5. Calculation of EL-eqs and Impacts
 
-### 5.1 Kinetic and Potential Energy 
+## 5.1. Kinetic and Potential Energy 
 Suppose a link has length $\mathbf{l}$. Then I assume its mass to be $\mathbf{l}$ and inertia to be $\mathbf{l^2}$. The generalized 6x6 body mass M is then obtained.  
 
 For each link, I compute the 4x4 matrix representation $\mathbf{g}$ of its center frame. Then calculate the body screw velocity $\mathbf{V}$ using $\mathbf{g}$ and $\mathbf{dg/dt}$. Then the kinetic energy is $\frac{1}{2}\mathbf{V^T M V}$.  
 
-### 5.2 Constraint and External Force  
+## 5.2. Constraint and External Force  
 
 These two elements can be easily added up to the EL-eqs.  
 
@@ -153,7 +162,7 @@ In scene1.nb, I add a constraint to the link at right up corner. I fixed its hei
 The external forces are set in this sentence:
 > externalForces = ConstantArray[0, nVars];
 
-### 5.3 Detecting Impacts
+## 5.3. Detecting Impacts
 
 The impact happens when **one link's vertex** goes through **another link's edge**. The two links should also from different groups.
 
@@ -166,7 +175,7 @@ For determining whether a vertex is inside the edge, I wrote two different metho
 
 (Meanwhile, whether the projection of vertex is on edge is also considered.)
 
-### 5.4 Impact Update  
+## 5.4. Impact Update  
 
 The logic of my code for impact detection  looks like this:  
 
@@ -195,15 +204,15 @@ Loop{
 
 
 # 7. Problems
-### **Not Detecting Some Impacts**
+* **Not Detecting Some Impacts**
   At some occasions, the vertex might go through the edge. The cause is that the object's velocity is too large, or the integration step length is too large. Currently, I didn't implement any advanced techinques to go back and forth to check the exact impact time. 
   
   So you might need to reduce the integration step length, or make your scene smaller (thus less potential energy and a smaller max speed).
 
-### **Slow Computing**   
+* **Slow Computing**   
    When the total DOF<10, links<15, step_size=0.001, simulation_time=15s, it takes about 3 minutes to compute all motions. Thus, the DOF and links cannot be too many, or it will cost too much time to compute impacts and do NDSolve.
 
-### **Be Cautions with Constraint**
+* **Be Cautions with Constraint**
   When applying constraint to a configuration variable, we must make sure that this variable won't move perpendicular to the constraint surface. Two cases (which are not subject to the solution of EL-eqs) can cause problem of making total energy not conserved:  
 
   1. Wrong initial velocity.
@@ -211,7 +220,7 @@ Loop{
   
   The reason is that we are  actually not applying constraint $\mathbf{\phi}$. Instead, we use $\mathbf{d\phi /dq}$ and $\mathbf{d^2\phi /dt^2}$ for solving EL-eqs.
 
-### **No Varying Constraint**  
+* **No Varying Constraint**  
   I didn't add varying constraint in this project. But I do make an analysis of how to do it below:  
 
   Consider a chair on the floor. Under my current scheme, the chair will keep on impacting with the floor and make the simulation slow and inaccurate.  
