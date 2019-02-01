@@ -24,7 +24,7 @@ pdf version of README: [pdf](README.pdf) (Due to some math eqs are not shown wel
 # 1. Introduction
 
 ## 1.1 Why I made this API
-It can be a big headache to hardcode the simulation of multi-link system in Mathematica, as it's trivial to type in all formulas and to deal with all kinds of weird bugs. The goal of this project is to reduce such pain by wrapping up an API (> Application Programming Interface) so users/students could build up a simulation by using simple functions.
+It can be a big headache to hardcode the simulation of multi-link system in Mathematica, as it's nontrivial to type in all formulas and to deal with all kinds of weird bugs. The goal of this project is to reduce such pain by wrapping up an API (> Application Programming Interface) so users/students could build up a simulation by using simple functions.
 
 ## 1.2 Intro
 
