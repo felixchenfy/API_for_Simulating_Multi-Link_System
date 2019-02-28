@@ -1,14 +1,19 @@
 API for Simulating Multi-link System
 ====================================
-Final project of ME314 Machine Dynamics
 
+Final project of ME314 Machine Dynamics  
 student: Feiyu Chen
 
-video domos:
+![](images/scene1.gif)  | ![](images/scene4.gif)|
+--------- | --------|
+![](images/scene2.gif)  | ![](images/scene3.gif) |
+
+
+Four demos of the simulation of multi-link system are shown above. You can download the videos here:
 [scene1](http://feiyuchen.com/wp-content/uploads/scene1_10s_slowed.mp4), 
 [scene2](http://feiyuchen.com/wp-content/uploads/scene2_10s_slowed.mp4), 
 [scene3](http://feiyuchen.com/wp-content/uploads/scene3_15s_slowed.mp4), 
-[scene4](http://feiyuchen.com/wp-content/uploads/scene4_10s.mp4)
+[scene4](http://feiyuchen.com/wp-content/uploads/scene4_10s.mp4).
 
 pdf version of README: [pdf](README.pdf) (Due to some math eqs are not shown well on github.)
 
